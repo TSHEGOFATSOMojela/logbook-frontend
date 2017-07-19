@@ -42,7 +42,7 @@
       <uib-tab active="steps.step1">
 
         <uib-tab-heading>
-          Personal Information
+          company Information
           <span class="badge badge-default pull-right wizard-step">1</span>
         </uib-tab-heading>
 
@@ -50,13 +50,31 @@
 
           <div class="row">
             <div class="form-group col-md-6">
-              <label for="username">Name: </label>
-              <input type="text" name="name" id="name" class="form-control" ng-model="user.name" required>
+              <label for="username">Name of company: </label>
+              <input type="text" name="name" id="name" class="form-control" ng-model="company.name" required>
               <p class="help-block">
-                <span ng-show="step1.name.$invalid && !step1.name.$pristine">Name is required.</span>
+                <span ng-show="step1.name.$invalid && !step1.name.$pristine">Company name is required.</span>
               </p>
             </div>
-
+              
+              <div class="row">
+            <div class="form-group col-md-6">
+              <label for="username">Branch: </label>
+              <input type="text" name="branch" id="branch" class="form-control" ng-model="company.branch" required>
+              <p class="help-block">
+                <span ng-show="step1.name.$invalid && !step1.name.$pristine">Branch name is required.</span>
+              </p>
+            </div>
+                  
+                  <div class="row">
+            <div class="form-group col-md-6">
+              <label for="username">Type (e.g : Construction): </label>
+              <input type="text" name="type" id="type" class="form-control" ng-model="company.type" required>
+              <p class="help-block">
+                <span ng-show="step1.name.$invalid && !step1.name.$pristine">Type is required.</span>
+              </p>
+            </div>
+                 <div class="row">
             <div class="form-group col-md-6">
               <label for="username">Username: </label>
               <input type="text" name="username" id="username" class="form-control" ng-model="user.username" ng-minlength="3" ng-maxlength="8" required>
@@ -90,8 +108,8 @@
           </div>
 
           <div class="form-group">
-            <label for="message">About you: </label>
-            <textarea class="form-control" rows="5" name="message" id="message" placeholder="Write something about you..." ng-model="user.message"></textarea>
+            <label for="message">About company: </label>
+            <textarea class="form-control" rows="5" name="message" id="message" placeholder="Write something that describe the company..." ng-model="user.message"></textarea>
           </div>
 
           <button type="submit" ng-disabled="step1.$invalid" class="btn btn-default" ng-click="steps.step2=true">Next</button>
@@ -102,10 +120,12 @@
 
       <uib-tab active="steps.step2" disable="step1.$invalid">
 
+<!--
         <uib-tab-heading>
           Address
           <span class="badge badge-default pull-right wizard-step">2</span>
         </uib-tab-heading>
+-->
 
         <form name="step2" role="form" novalidate>
 
@@ -160,6 +180,7 @@
 
         </form>
 
+<!--
       </uib-tab>
 
       <uib-tab active="steps.step3" disable="step2.$invalid">
@@ -235,13 +256,16 @@
 
         </form>
       </uib-tab>
+-->
 
+<!--
       <uib-tab active="steps.step4" disable="step3.$invalid">
 
         <uib-tab-heading>
           Contact
           <span class="badge badge-default pull-right wizard-step">4</span>
         </uib-tab-heading>
+-->
 
         <form name="step4" role="form" novalidate>
 
