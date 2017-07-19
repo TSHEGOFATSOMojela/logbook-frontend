@@ -25,7 +25,6 @@ app
 
     $scope.getUsers();
   })
-
   .controller('StatisticsChartCtrl', function ($scope) {
 
     $scope.dataset = [{
