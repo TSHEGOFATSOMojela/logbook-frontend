@@ -111,20 +111,20 @@ var app = angular
       url: '/app',
       templateUrl: 'views/tmpl/app.html'
     })
-//    //dashboard
-//    .state('app.dashboard', {
-//      url: '/dashboard',
-//      controller: 'DashboardCtrl',
-//      templateUrl: 'views/tmpl/dashboard.html',
-//      resolve: {
-//        plugins: ['$ocLazyLoad', function($ocLazyLoad) {
-//          return $ocLazyLoad.load([
-//            'scripts/vendor/datatables/datatables.bootstrap.min.css',
-//            'scripts/vendor/datatables/datatables.bootstrap.min.css'
-//          ]);
-//        }]
-//      }
-//    })
+    //dashboard
+    .state('app.dashboard', {
+      url: '/dashboard',
+      controller: 'DashboardCtrl',
+      templateUrl: 'views/tmpl/dashboard.html',
+      resolve: {
+        plugins: ['$ocLazyLoad', function($ocLazyLoad) {
+          return $ocLazyLoad.load([
+            'scripts/vendor/datatables/datatables.bootstrap.min.css',
+            'scripts/vendor/datatables/datatables.bootstrap.min.css'
+          ]);
+        }]
+      }
+    })
     //mail
     .state('app.mail', {
       abstract: true,
@@ -595,7 +595,7 @@ var app = angular
       templateUrl: 'views/tmpl/tables/bootstrap.html'
     })
     //tables/datatables
-    .state('app.dashboard', {
+    .state('app.tables.datatables', {
       url: '/datatables',
       controller: 'TablesDatatablesCtrl',
       templateUrl: 'views/tmpl/tables/datatables.html',
