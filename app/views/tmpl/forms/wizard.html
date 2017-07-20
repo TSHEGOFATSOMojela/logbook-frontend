@@ -39,7 +39,7 @@
 
     <uib-tabset class="tab-animation tab-container tab-wizard" justified="true" set-ng-animate="true" ng-init="steps={step1:true, step2:false, step3:false, step4:false, step5: false}">
 
-      <uib-tab active="steps.step1">
+<!--      <uib-tab active="steps.step1">-->
 
         <uib-tab-heading>
           company Information
@@ -47,9 +47,9 @@
         </uib-tab-heading>
 
         <form name="step1" role="form" novalidate class="form-validation">
-
+        <div layout="row" layout-align="center center">
           <div class="row">
-            <div class="form-group col-md-6">
+            <div class="form-group">
               <label for="username">Name of company: </label>
               <input type="text" name="name" id="name" class="form-control" ng-model="company.name" required>
               <p class="help-block">
@@ -58,7 +58,7 @@
             </div>
               
               <div class="row">
-            <div class="form-group col-md-6">
+            <div class="form-group">
               <label for="username">Branch: </label>
               <input type="text" name="branch" id="branch" class="form-control" ng-model="company.branch" required>
               <p class="help-block">
@@ -66,14 +66,25 @@
               </p>
             </div>
                   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
                   <div class="row">
-            <div class="form-group col-md-6">
+            <div class="form-group ">
               <label for="username">Type (e.g : Construction): </label>
               <input type="text" name="type" id="type" class="form-control" ng-model="company.type" required>
               <p class="help-block">
                 <span ng-show="step1.name.$invalid && !step1.name.$pristine">Type is required.</span>
               </p>
             </div>
+<!--
                  <div class="row">
             <div class="form-group col-md-6">
               <label for="username">Username: </label>
@@ -107,6 +118,7 @@
 
           </div>
 
+
           <div class="form-group">
             <label for="message">About company: </label>
             <textarea class="form-control" rows="5" name="message" id="message" placeholder="Write something that describe the company..." ng-model="user.message"></textarea>
@@ -114,30 +126,31 @@
 
           <button type="submit" ng-disabled="step1.$invalid" class="btn btn-default" ng-click="steps.step2=true">Next</button>
 
-        </form>
+        </form>-->
 
-      </uib-tab>
+<!--      </uib-tab>-->
 
-      <uib-tab active="steps.step2" disable="step1.$invalid">
+ <!--     <uib-tab active="steps.step2" disable="step1.$invalid">
 
-<!--
+
         <uib-tab-heading>
           Address
           <span class="badge badge-default pull-right wizard-step">2</span>
         </uib-tab-heading>
--->
 
-        <form name="step2" role="form" novalidate>
 
-          <div class="row">
-            <div class="form-group col-md-8 mb-0">
+    <form name="step2" role="form" novalidate>
+
+  -->       
+              <div class="row">
+            <div class="form-group ">
               <label for="street">Street: </label>
               <input type="text" name="street" id="street" class="form-control" ng-model="user.street" placeholder="Enter street address" required>
               <p class="help-block">
                 <span ng-show="step2.street.$invalid && !step2.street.$pristine">Street is required.</span>
               </p>
             </div>
-            <div class="form-group col-md-4 mb-0">
+            <div class="form-group ">
               <label for="dnumber">Door no.: </label>
               <input type="text" name="dnumber" id="dnumber" class="form-control" ng-model="user.dnumber" placeholder="Enter door number" required>
               <p class="help-block">
@@ -152,33 +165,35 @@
           </div>
 
           <div class="row">
-            <div class="form-group col-md-4">
+            <div class="form-group ">
               <label for="city">City: </label>
               <input type="text" name="city" id="city" class="form-control" ng-model="user.city" placeholder="Enter city" required>
               <p class="help-block">
                 <span ng-show="step2.city.$invalid && !step2.city.$pristine">City is required.</span>
               </p>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group ">
               <label for="state">State: </label>
               <input type="text" name="state" id="state" class="form-control" ng-model="user.state" placeholder="Enter state" required>
               <p class="help-block">
                 <span ng-show="step2.state.$invalid && !step2.state.$pristine">State is required.</span>
               </p>
             </div>
-            <div class="form-group col-md-4">
-              <label for="zip">Zip: </label>
-              <input type="text" name="zip" id="zip" class="form-control" ng-model="user.zip" placeholder="Enter zip" required>
+            <div class="form-group ">
+              <label for="zip">Code: </label>
+              <input type="text" name="code" id="code" class="form-control" ng-model="user.code" placeholder="Enter cose" required>
               <p class="help-block">
-                <span ng-show="step2.zip.$invalid && !step2.zip.$pristine">Zip is required.</span>
+                <span ng-show="step2.zip.$invalid && !step2.zip.$pristine">Code is required.</span>
               </p>
-            </div>
-          </div>
+            
+ <!--         </div>
+
 
           <button type="submit" class="btn btn-default" ng-click="steps.step1=true">Previous</button>
           <button type="submit" ng-disabled="step2.$invalid" class="btn btn-default pull-right" ng-click="steps.step3=true">Next</button>
 
         </form>
+-->
 
 <!--
       </uib-tab>
@@ -267,17 +282,17 @@
         </uib-tab-heading>
 -->
 
-        <form name="step4" role="form" novalidate>
+<!--        <form name="step4" role="form" novalidate>-->
 
           <div class="row">
-            <div class="form-group col-md-6 mb-0">
+            <div class="form-group">
               <label for="email">Email: </label>
               <input type="email" name="email" id="email" class="form-control" ng-model="user.email" required>
                <p class="help-block">
                 <span ng-show="step4.email.$invalid && !step4.email.$pristine">Email is required.</span>
                </p>
             </div>
-            <div class="form-group col-md-6 mb-0">
+            <div class="form-group ">
               <label for="phone">Phone: </label>
               <input type="text" name="phone" id="phone" class="form-control" ng-model="user.phone" placeholder="(XXX) XXXX XXX"  ng-pattern="/\([0-9]{3}\) ([0-9]{3}) ([0-9]{3})$/">
                <p class="help-block">
@@ -292,10 +307,11 @@
              <p class="help-block">
               <span ng-show="step4.web.$invalid && !step4.web.$pristine">Bad format.</span>
              </p>
-          </div>
+   <!--         </div>
 
-          <button type="submit" class="btn btn-default" ng-click="steps.step3=true">Previous</button>
+        <button type="submit" class="btn btn-default" ng-click="steps.step3=true">Previous</button>
           <button type="submit" ng-disabled="step4.$invalid" class="btn btn-default pull-right" ng-click="steps.step5=true">Next</button>
+
 
         </form>
       </uib-tab>
@@ -306,10 +322,13 @@
           EULA
           <span class="pull-right wizard-step">5</span>
         </uib-tab-heading>
+-->
 
+<!--
         <p class="well">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?</p>
 
         <form name="step5" role="form" novalidate>
+-->
 
           <div class="checkbox">
             <label class="checkbox checkbox-custom">
@@ -324,11 +343,15 @@
             <label class="checkbox checkbox-custom">
               <input type="checkbox" name="newsletter" id="newsletter" ng-model="user.newsletter"><i></i> Receive newsletter</a>
             </label>
+<!--
           </div>
 
           <button type="submit" class="btn btn-default" ng-click="steps.step4=true">Previous</button>
           <button type="submit" ng-disabled="step5.$invalid" class="btn btn-success pull-right">Finish</button>
-
+            
+            </div>    
+-->
+                </div>
         </form>
 
       </uib-tab>
