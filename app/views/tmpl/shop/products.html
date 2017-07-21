@@ -1,85 +1,23 @@
-<div class="page page-products">
-
-
-
-
-  <!-- page header -->
-  <div class="pageheader">
-
-<!--    <h2>{{page.title}} <span>// {{page.subtitle}}</span></h2>-->
-
-    <div class="page-bar">
-
-      <ul class="page-breadcrumb">
-        <li>
-          <a ui-sref="app.dashboard"><i class="fa fa-home"></i> {{main.title}}</a>
-        </li>
-        <li>
-<!--          <a href="javascript:;">Intern</a>-->
-        </li>
-        <li>
-          <a ui-sref="app.shop.products">{{page.title}}</a>
-        </li>
-      </ul>
-
-    </div>
-
-  </div>
-  <!-- /page header -->
-
-
-
-
-
-
-  <!-- page content -->
-  <div class="pagecontent">
-
-
-    <!-- row -->
+<div class="pagecontent">
+    
+<div class="pagecontent">
+    
     <div class="row">
-      <!-- col -->
-      <div class="col-md-12">
-
-
-        <div class="alert alert-danger">
-          <strong>Note!</strong> This table have only demo purpose. Data are not loaded from database but from dummy json.
-        </div>
-
-
-        <!-- tile -->
-        <section class="tile" fullscreen="isFullscreen01">
-
-          <!-- tile header -->
-          <div class="tile-header dvd dvd-btm">
+       
+          <div class="col-md-12">
+ 
+  <section class="tile" fullscreen="isFullscreen01">  
+    
+      <div class="tile-header dvd dvd-btm">
             <h1 class="custom-font"><strong>INTERNS</strong></h1>
             <ul class="controls">
+<!-- <li><a href="javascript:window.print()" class="fa fa-plus mr-5" uib-tooltip="Print"><i class="fa fa-print"></i></a></li>-->
+              <li><a ui-sref="app.shop.single-order" ><i class="fa fa-plus mr-5"  ></i>Add Objectives</a></li>
 
-              <li><a href="javascipt:;"><i class="fa fa-plus mr-5"></i>add Intern</a></li>
+                 
 
-              <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
-
-                <a href class="dropdown-toggle" uib-dropdown-toggle>Tools <i class="fa fa-angle-down ml-5"></i></a>
-
-                <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-                  <li>
-<!--                    <a href>Export to XLS</a>-->
-                  </li>
-                  <li>
-<!--                    <a href>Export to CSV</a>-->
-                  </li>
-                  <li>
-<!--                    <a href>Export to XML</a>-->
-                  </li>
-                  <li role="presentation" class="divider"></li>
-                  <li>
-                    <a href>Print activities</a>
-                  </li>
-
-                </ul>
-
-              </li>
-
+           
+  
               <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
 
                 <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
@@ -96,13 +34,7 @@
                       <fa name="refresh"></fa> Refresh
                     </a>
                   </li>
-                  <li>
-<!--
-                    <a href tile-control-fullscreen ng-click="isFullscreen01 = !isFullscreen01">
-                      <fa name="expand"></fa> Fullscreen
-                    </a>
--->
-                  </li>
+                 
                   <li>
                     <a href tile-control-lightbox>
                       <fa name="magnet"></fa> Open in Lightbox
@@ -114,82 +46,226 @@
               </li>
               <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
             </ul>
+            
           </div>
-          <!-- /tile header -->
+    
+      <div class="table-responsive-wide">
+<body ng-controller="ProductsCtrl">
+<div>
+    
+<!--
+    <div class="form-group">
+             
+              
+         
 
-          <!-- tile body -->
-          <div class="tile-body" ng-controller="InternsTableCtrl as showCase">
-            <div class="table-responsive-wide">
-              <table datatable="ng" dt-options="showCase.dtOptions" dt-column-defs="showCase.dtColumnDefs" class="table table-striped table-hover table-custom" style="min-width: 1000px;">
-                <thead>
-                  <tr>
-                    <th style="width:40px;">
-                      <label cclass="checkbox checkbox-custom checkbox-custom-sm m-0">
-                        <input type="checkbox" ng-model="showCase.selectedAll" ng-click="showCase.selectAll()"><i></i>
-                      </label>
-                    </th>
-                    <th style="width:90px;">ID</th>
-                    <th>Name</th>
-                    <th>surname</th>
-                    <th style="width:80px;">gender</th>
-                    <th style="width:160px;">Date Created</th>
-                    <th style="width:160px;">position</th>
-                    <th style="width:160px;">email</th>
-                    <th style="width:90px;">Status</th>
-                    <th style="width:150px;">Actions</th>
-                  </tr>
-                  </thead>
-                  <tfoot>
-                  <tr>
-                    <th></th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>surname</th>
-                    <th>gender</th>
-                    <th>Date</th>
-                    <th>position</th>
-                    <th>email</th>
-                    <th>Status</th>
-                    <th></th>
-                  </tr>
-                  </tfoot>
-                  <tbody>
-                  <tr ng-repeat="intern in showCase.Interns">
-                    <td><label class="checkbox checkbox-custom checkbox-custom-sm m-0"><input type="checkbox" ng-model="intern.selected"><i></i></label></td>
-                    <td>{{ intern.id }}</td>
-                    <td>{{ intern.name }}</td>
-                    <td>{{ intern.category }}</td>
-                    <td>{{ intern.price | currency }}</td>
-                    <td>{{ intern.date | date:'mediumDate'}}</td>
-                    <td>{{ intern.name }}</td>
-                    <td>{{ intern.category }}</td>
-                    <td><span class="label" ng-class="{'bg-success' : intern.status == 'published','bg-warning' : intern.status == 'not published','bg-lightred' : intern.status == 'deleted'}">{{ intern.status }}</span></td>
-                    <td>
-                      <a ui-sref="app.shop.single-product" class="btn btn-xs btn-default"><i class="fa fa-search"></i> View</a>
-                      <a href="javascript:;" class="btn btn-xs btn-lightred"><i class="fa fa-times"></i> Delete</a>
-                    </td>
-                  </tr>
-                  </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- /tile body -->
-
-        </section>
-        <!-- /tile -->
-
+    
       </div>
-      <!-- /col -->
-    </div>
-    <!-- /row -->
-
-
-
-
+-->
+        <div class="row">
+            
+            
+          
+            
+            <div class="col-md-12">
+                 
+                     
+                <div class="panel panel-default">
+                    
+                     <div class="row">
+                         
+                         <div class="col-md-8 col-sm-12">
+                             <div class="inline-controls">
+                                 <div class="dataTables_length" id="DataTables_Table_0_length">
+                                     
+                                     <label  class="col-md-8 col-sm-12">View Interns<br><select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>
+                                     </label>
+                                  
+                                 </div>
+                             
+                             </div>
+                         </div>
+                         
+                         
+                         <div class="col-md-3 col-sm-8"><div class="pull-right"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" ng-model="searchKeyword"aria-controls="DataTables_Table_0"></label>
+                         
+                         
+                         
+                         
+                         </div>
+                         
+                         
+                         
+                         </div>
+                         
+                         
+                         
+                         
+                         </div>
+                    
+                    
+                    
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    <div class="panel-body">
+<table class="table">
+    
+    <tr>
+        
+  
+		<th>Name
+		</th>
+		<th>Surname
+		</th>
+		<th>Email
+		</th>
+        <th>Gender
+		</th>
+        <th>Company
+		</th>
+        <th>Position
+		</th>
+          <th>Contacts
+		</th>
+        <th>Performance
+		</th>
+          <th>Actions
+		</th>
+	</tr>
+	<tr>
+    <form class="form-horizontal" role="form" ng-submit="addRow()">
+		<td class="col-md">
+            
+            <input type="text" class="form-control" name="name"
+				ng-model="name" />
+		</td>
+		<td class="col-md"><input type="text" class="form-control" name="surname"
+				ng-model="surname" />
+		</td>
+		<td class="col-md">	
+			<input type="email" class="form-control" name="email"
+				ng-model="email" />
+		
+		</td>
+        <td class="col-md">
+			<input type="text" class="form-control" name="gender"
+				ng-model="gender" />
+		</td>
+		<td class="col-md">
+			<input type="text" class="form-control" name="company"
+				ng-model="company" />
+		
+		</td>
+		<td class="col-md">
+			<input type="text" class="form-control" name="position"
+				ng-model="position" />
+		</td>
+        <td class="col-md">
+			<input type="number" class="form-control" name="contacts"
+				ng-model="contacts" placeholder="+27"/>
+		</td>
+        
+        <td class="col-md">								
+		
+			
+        </td>
+        
+          <td class="col-md">								
+		
+			<input type="submit" value="Add Intern"  ng-click="addRow()"class="btn btn-xs btn-default"/>
+        </td>
+        </form>
+	    </tr>
+    
+    
+    
+    
+    
+    
+<!--
+    
+	<tr>
+		<th>Name
+		</th>
+		<th>Surname
+		</th>
+		<th>Email
+		</th>
+        <th>Gender
+		</th>
+        <th>Company
+		</th>
+        <th>Position
+		</th>
+          <th>Contacts
+		</th>
+        <th>Performance
+		</th>
+          <th>Actions
+		</th>
+	</tr>
+-->
+	<tr ng-repeat="Intern in Interns  | filter: searchKeyword ">
+        
+		<td>{{Intern.name}}
+		</td>
+		<td>{{Intern.surname}}
+		</td>
+		<td>{{Intern.email}}
+		</td>
+        <td>{{Intern.gender}}
+		</td>
+		<td>{{Intern.company}}
+		</td>
+		<td>{{Intern.position}}
+		</td>
+        <td>{{Intern.contacts}}
+		</td>
+         <td>
+        <a ui-sref="app.calendar" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View activities</a>
+               </td>
+        <td>
+         <input type="button" class="btn btn-xs btn-default" ng-click="remove(Intern.name)" value="Remove">
+    </td>
+            <td>
+         <input type="button" class="btn btn-xs btn-default" ng-click="edit()"value="Edit">
+    </td>
+	    </tr>
+</table>
+	  </div>			
+</div>
   </div>
-  <!-- /page content -->
-
-
-
-
+    </div>
+    
+    
+    
+    
+    
+    
+<!--    <div class="row"><div class="col-md-4 col-sm-12"><div class="inline-controls"><div class="dataTables_length"><label>View <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> records</label></div></div></div><div class="col-md-4 col-sm-12"><div class="inline-controls text-center"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Found 300 records</div></div></div><div class="col-md-4 col-sm-12"><div class="dataTables_paginate paging_input" id="DataTables_Table_0_paginate"><div class="pagination-panel"> Page <a href="#" class="btn btn-sm btn-default prev disabled" title="Previous"><i class="fa fa-angle-left"></i></a><input type="text" class="pagination-panel-input form-control input-sm input-inline w-40" maxlenght="5" style="text-align:center; margin: 0 6px"><a href="#" class="btn btn-sm btn-default next" title="Next"><i class="fa fa-angle-right"></i></a> of <span class="pagination-panel-total">30</span></div></div></div></div>-->
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    
+    
+ 
+    
+    
+    
+    
+</body>
+          </div>
+      
+ </section>
+               </div>
+       </div>
 </div>

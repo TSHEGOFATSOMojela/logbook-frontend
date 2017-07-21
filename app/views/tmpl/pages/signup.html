@@ -1,8 +1,8 @@
-<div class="page page-core page-login">
+<div class="page page-core page-login" >
 
-  <div class="text-center"><h3 class="text-light text-white"><span class="text-lightred">M</span>INOVATE</h3></div>
+  <div class="text-center"><h3 class="text-light text-white"><span class="text-lightred"></span>INTERN LOGBOOK</h3></div>
 
-  <div class="container w-420 p-15 bg-white mt-40 text-center">
+  <div class="container w-420 p-2 bg-white mt-2 text-center">
 
     <h2 class="text-light text-greensea">Sign Up</h2>
 
@@ -15,7 +15,9 @@
       <div class="form-group">
         <input type="text" class="form-control underline-input" placeholder="Full Name" ng-model="user.name" required>
       </div>
-
+   <div class="form-group">
+        <input type="text" class="form-control underline-input" placeholder="Last Name" ng-model="user.name" required>
+      </div>
       <div class="form-group">
         <input type="email" class="form-control underline-input" placeholder="Email" ng-model="user.email" required>
       </div>
@@ -23,7 +25,29 @@
       <div class="form-group">
         <input type="password" placeholder="Password" class="form-control underline-input" ng-model="user.password" required>
       </div>
-
+        <div class="form-group">
+        <input type="password" placeholder="Confirm Password" class="form-control underline-input" ng-model="user.password" required>
+      </div>
+  
+        <div class="form-group">
+        <input type="text" class="form-control underline-input" placeholder="Position" ng-model="user.name" required>
+      </div>
+           <div class="form-group">
+        <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.name" required>
+      </div>
+         <div ng-controller="SignupCtrl">
+              <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <li ng-repeat="x in names" id="abj">
+                      <div class="p-15 bg-white">
+                            <button type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addEvent()" uib-tooltip="Doule-click to calendar day to add event" tooltip-placement="bottom" ><i ng-click="setCurrent($index)" class="fa fa-plus"></i></button>             
+                          
+                          
+                          <h4 class="custom-font text-default m-0">{{x}}</h4>
+                    
+                       </div>
+                  </li>
+            </ul>
+      </div>
       <div class="form-group text-left">
          <label class="checkbox checkbox-custom checkbox-custom-sm inline-block">
           <input type="checkbox" ng-model="user.accept" required><i></i> I agree to the <a href="javascript:;">Terms of Service</a> & <a href="javascript:;">Privacy Policy</a>
@@ -32,10 +56,10 @@
 
     </form>
 
-    <div class="bg-slategray lt wrap-reset mt-20 text-left">
+    <div class="bg-slategray lt wrap-reset mt- text-left">
       <p class="m-0">
-        <a ui-sref="app.dashboard" class="btn btn-greensea b-0 text-uppercase pull-right" ng-disabled='form.$invalid'>Submit</a>
-        <a ui-sref="core.login" class="btn btn-lightred b-0 text-uppercase">Back</a>
+        <a ui-sref="app.dashboard" class="btn btn-greensea b-0 text-lowercase pull-right" ng-disabled='form.$invalid'>Submit</a>
+        <a ui-sref="core.login" class="btn btn-lightred b-0 text-lowercase">Back</a>
       </p>
     </div>
 
