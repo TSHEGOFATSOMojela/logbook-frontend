@@ -26,7 +26,9 @@ app
 
     /* event source that contains custom events on the scope */
     $scope.events = [
-      {Objective:'stronglopp',desc:'learn it by force',title: 'All Day Event',start: new Date(y, m, 1), className: ['b-l b-2x b-greensea'],comment:'holle buddy.'},
+      {Objective:'Leave',Days:'3',title: 'Sick Leave',start: new Date(y, m, 1), className: ['b-l b-2x b-greensea'],comment:'I just had an accident'},
+        
+        
       {Objective:'mongodb',desc:'happy mongodb',title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2), className: ['bg-dutch'],comment:'i dont care.'},
       {Objective:'loopback',desc:'do it for me',id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false, className: ['b-l b-2x b-primary'],comment:'I love you sweetie.'},
       {Objective:'nodejs',desc:'i dont care',id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false, className: ['b-l b-2x b-primary'],comment:'Im in need of you.'},
@@ -44,7 +46,7 @@ app
       if(time - $scope.lastClickTime <= $scope.precision){
         $scope.events.push({
           title: 'New Activity',
-          desc:'description',
+          desc:'description',    
           start: date,
           className: ['b-l b-2x b-info'],
           comment:'add comment'   
@@ -101,14 +103,26 @@ app
 
     /* add custom event document.getElementById("obj").value */
     $scope.addEvent = function() {
-      $scope.events.push({
+        if($scope.names[$scope.curr] == "Leave"){
+        $scope.events.push({
         Objective: $scope.names[$scope.curr],
+        LeaveType: $scope.returnedLeav,            
+        Days:'0',
+        start: new Date(y, m, d),
+        className: ['b-l b-2x b-info'],
+        comment:'add comment'            
+      });  
+        }else{
+        $scope.events.push({
+        Objective: $scope.names[$scope.curr],  
+        desc:'description',    
         title: 'New Activity',
-        desc:'description',
         start: new Date(y, m, d),
         className: ['b-l b-2x b-info'],
         comment:'add comment'
       });
+        }
+    
     };
 
     /* remove event */
@@ -129,18 +143,34 @@ app
     $scope.eventSources = [$scope.events];
     
     
-    /*disable or enable the activity*/
-    $scope.dButton = false;
-    
-    
 /*here comes another story*/
     
-    $scope.names = ["strongloop", "mongo", "Linus"];
-    
-   
+    $scope.names = ["strongloop", "mongo", "Linus","Leave"];
     $scope.setCurrent = function setCurrent(index) {
     $scope.curr = index;
 };
+
+$scope.showLeave = function() {
+
+if ($scope.curr == 3)
+  return true;
+else 
+  return false;
+
+};
+    
+    
+    $scope.leave = ["Annual Leave", "Maternity Leave", "Sick Leave","Family Responsibility Leave","Study Leave","Leave for religious holidays","Unpaid leave"];
+
+    $scope.getLvIndex = function getLvIndex(index) {
+    $scope.currIndex = index;
+    $scope.returnedLeav = $scope.leave[$scope.currIndex];    
+       
+};
+    
+
+
+  
     
   });
 
