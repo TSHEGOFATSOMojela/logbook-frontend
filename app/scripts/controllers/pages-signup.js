@@ -9,6 +9,9 @@
  */
 app
   .controller('SignupCtrl', function ($scope) {
-   $scope.names = ["Emil", "Tobias", "Linus"];
+    $scope.awesomeThings = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
     ];
   });
