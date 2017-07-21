@@ -1,65 +1,131 @@
-'use strict';
 
-/**
- * @ngdoc function
- * @name minovateApp.controller:ShopOrdersCtrl
- * @description
- * # ShopOrdersCtrl
- * Controller of the minovateApp
- */
-app
-  .controller('ProductsCtrl', function ($scope) {
-    $scope.page = {
-      title: 'Interns',
-      subtitle: 'Place subtitle here...'
-    };
-  })
+app.controller("ProductsCtrl", function($scope) {
+$scope.Interns = [
+                    { 'name':'tshegofatso',
+                    	'surname': 'mojela',
+                    	'email': 'mojelatshego@skhomotech.co.za',
+                        'gender':'male',
+                    	'company': 'skhomo technologies',
+                    	'position': 'Intern',
+                        'contacts': 27726885360
+                    },
+    
+    
+                    	{ 'name':'thulani',
+                    	'surname': 'malatjie',
+                    	'email': 'malatjie@skhomotech.co.za',
+                        'gender':'male',
+                    	'company': 'skhomo technologies',
+                    	'position': 'Intern',
+                        'contacts': 27726873635},
+    
+      
+	                    	{ 'name':'naftalie',
+                    	       'surname': 'morwa',
+                    	       'email': 'Nmorwa@skhomotech.co.za',
+                               'gender':'male',
+                    	         'company': 'skhomo technologies',
+                    	       'position': 'Intern',
+                              'contacts': 27265343434},
+    
+    
+    
+		                    	{ 'name':'lethabo',
+                    	'surname': 'pedi',
+                    	'email': 'pedi@skhomotech.co.za',
+                        'gender':'female',
+                    	'company': 'skhomo technologies',
+                    	'position': 'Intern',
+                        'contacts': 27726252434},
+    
+    
+			                    	{ 'name':'Mmatshepo',
+                    	'surname': 'matjetja',
+                    	'email': 'majetja@gskhomotech.co.za',
+                        'gender':'female',
+                    	'company': 'skhomo technologies',
+                    	'position': 'Intern',
+                        'contacts': 277253434343},
+                    ];
+$scope.addRow = function(){		
+	$scope.Interns.push({ 'name':$scope.name, 'surname': $scope.surname, 'email':$scope.email, 'gender':$scope.gender, 'company':$scope.company, 'position':$scope.position, 'contacts':$scope.contacts});
+	$scope.name='';
+    $scope.surname='';
+	$scope.email='';
+	$scope.gender='';
+    $scope.company='';
+    $scope.position='';
+    $scope.contacts='';
+   
+};
+    
+$scope.remove = function(name){				
+		var index = -1;		
+		var comArr = eval( $scope.Interns );
+		for( var i = 0; i < comArr.length; i++ ) {
+			if( comArr[i].name === name ) {
+				index = i;
+				break;
+			}
+		}
+		if( index === -1 ) {
+			alert( "Something gone wrong" );
+		}
+		$scope.Interns.splice( index, 1 );		
+	};
+    
+   
+    
+    
+    
+    
+//    <!-- Edit and update row function -->
+//			$scope.edit = function(){
+//				var index = getSelectedIndex($scope.name);
+//				$scope.Interns[index].surname = $scope.surname;
+//				$scope.Interns[index].email = $scope.email;
+//				$scope.Interns[index].gender = $scope.gender;
+//				$scope.Interns[index].company = $scope.company;
+//        	    $scope.Interns[index].position = $scope.position;
+//        	    $scope.Interns[index].contacts = $scope.contacts;
+//        	  
+//			};
+//			
+//			<!-- Select the row of data and update the form function -->
+//			$scope.selectEdit = function(name){
+//				var index = getSelectedIndex(name);
+//				var product = $scope.listProducts[index];
+//				$scope.name = product.name;
+//				$scope.surname = product.surname;
+//				$scope.email = product.email;
+//				$scope.gender = product.gender;
+//				$scope.company = product.company;
+//                $scope.position = product.position;
+//                $scope.contacts = product.contacts;
+//			};
+//			
+//    
+//    <!-- Function finds unique product data based on its id -->
+//			function getSelectedIndex(name){
+//				for(var i=0; i<$scope.Interns.length; i++)
+//					if($scope.Interns[i].name==name)
+//						return i;
+//					return -1;	
+//			};
+//    
+//    
+    
+    
+    
+    
+});
 
-  .controller('InternsTableCtrl', function ($scope, DTOptionsBuilder, DTColumnDefBuilder, DTColumnBuilder, $resource) {
-
-    var vm = this;
-    vm.Interns = [];
-    vm.dtOptions = DTOptionsBuilder.newOptions()
-      .withBootstrap()
-      .withOption('order', [[1, 'asc']])
-      .withDOM('<"row"<"col-md-8 col-sm-12"<"inline-controls"l>><"col-md-4 col-sm-12"<"pull-right"f>>>t<"row"<"col-md-4 col-sm-12"<"inline-controls"l>><"col-md-4 col-sm-12"<"inline-controls text-center"i>><"col-md-4 col-sm-12"p>>')
-      .withLanguage({
-        "sLengthMenu": 'View _MENU_ Interns',
-        "sInfo":  'Found _TOTAL_ Interns',
-        "oPaginate": {
-          "sPage":    "Page",
-          "sPageOf":  "of"
-        }
-      })
-      .withPaginationType('input')
-      //.withScroller()
-      //.withOption("sScrollY", false)
-      //.withOption("sScrollX")
-      .withColumnFilter();
 
 
-    vm.dtColumnDefs = [
-      DTColumnDefBuilder.newColumnDef(0).notSortable(),
-      DTColumnDefBuilder.newColumnDef(7).notSortable()
-    ];
-
-    vm.selectedAll = false;
-
-    vm.selectAll = function () {
-
-      if ($scope.selectedAll) {
-        $scope.selectedAll = false;
-      } else {
-        $scope.selectedAll = true;
-      }
-
-      angular.forEach(vm.Interns, function(Interns) {
-        product.selected = $scope.selectedAll;
-      });
-    };
-
-    $resource('http://www.filltext.com/?rows=300&id={index}&name={lorem|2}&category=["Food","Drinks","Accesories","Electro","Kitchen","Bathroom"]&price={numberLength|3}}&date={date|01-01-2012,01-01-2015}&status=["published","not published","deleted"]&pretty=true').query().$promise.then(function(Interns) {
-      vm.Interns = Interns;
-    });
-
-  });
+		
+		
+		
+		
+		
+   
+		
