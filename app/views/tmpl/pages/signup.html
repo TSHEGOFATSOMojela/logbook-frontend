@@ -1,40 +1,119 @@
+<body controller="SignupCtrl">
 <div class="page page-core page-login" >
 
   <div class="text-center"><h3 class="text-light text-white"><span class="text-lightred"></span>INTERN LOGBOOK</h3></div>
 
-  <div class="container w-420 p-2 bg-white mt-2 text-center">
+  <div class="container bg-white text-center">
 
     <h2 class="text-light text-greensea">Sign Up</h2>
-
+<table class="table">
     <form name="form" class="form-validation mt-20" novalidate>
+    <tr>
+          
 
       <p class="help-block text-left">
          Enter your personal details below:
-      </p>
-
-      <div class="form-group">
-        <input type="text" class="form-control underline-input" placeholder="Full Name" ng-model="user.name" required>
+      </p> 
+  
+		<th><div class="form-group">
+        <input type="text" class="form-control underline-input" placeholder="Full Name" ng-model="user.fullName" required>
       </div>
-   <div class="form-group">
-        <input type="text" class="form-control underline-input" placeholder="Last Name" ng-model="user.name" required>
+		</th>
+		<th><div class="form-group">
+        <input type="text" class="form-control underline-input" placeholder="Last Name" ng-model="user.lastName" required>
       </div>
-      <div class="form-group">
+		</th>
+		<th>   <div class="form-group">
+        <input type="text" class="form-control underline-input" placeholder="username" ng-model="user.userName" required>
+      </div>
+		</th>
+        <th>   <div class="form-group">
         <input type="email" class="form-control underline-input" placeholder="Email" ng-model="user.email" required>
       </div>
-
+		</th>
+        <th>   <div class="form-group">
+        <input type="text" class="form-control underline-input" placeholder="gender" ng-model="user.gender" required>
+      </div>
+		</th>
+    
+	</tr>
+	<tr>
+          <th>
       <div class="form-group">
         <input type="password" placeholder="Password" class="form-control underline-input" ng-model="user.password" required>
       </div>
+		</th>
+        <th>
         <div class="form-group">
-        <input type="password" placeholder="Confirm Password" class="form-control underline-input" ng-model="user.password" required>
+        <input type="password" placeholder="Confirm Password" class="form-control underline-input" ng-model="user.comfirmPassword" required>
       </div>
-  
+		</th>
+<!--
+          <th> <div class="form-group">
+        <input type="text" class="form-control underline-input" placeholder="Position" ng-model="user.position" required>
+      </div>
+		</th>
+-->
+        <th>        <div class="form-group">
+        <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.contacts" required>
+      </div>
+		</th>
+        
+        
+        
+        
+        
+    <th> 
+        
+        <tr>
+ 
+    <form class="form-inline" name="form">
+       
         <div class="form-group">
-        <input type="text" class="form-control underline-input" placeholder="Position" ng-model="user.name" required>
+            <br><label for="Company" class="control-label"></label><br>
+            <select name='Company' id="Company" class="form-control" ng-model="Company" ng-options="Company as Company.CompanyName for Company in Companies" required>
+                <option value="" disabled>Companies</option>
+            </select>
+        </div>
+           
+         <th>
+        <div class="form-group">
+            <label for="Mentor" class="control-label"></label>
+            <select name='Mentor' required id="Mentor" class="form-control" ng-disabled="Mentors.length == 0" ng-model="Mentor" ng-options="Mentor as Mentor.MentorName for Mentor in Mentors">
+                <option value="" disabled>Mentors</option>
+            </select>
+        </div>
+             </th>
+        <th>
+        <div class="form-group">
+            <label for="Position" class="control-label"></label>
+            <select name='Position' required id="Position" class="form-control" ng-disabled="Positions.length == 0" ng-model="Position" ng-options="Position as Position.PositionName for Position in Positions">
+                <option value="" disabled>Position</option>
+            </select>
+        </div>
+             </th>
+<!--        <button class="btn btn-primary" ng-disabled='!city.Id' type="button">Create</button>-->
+    </form>
+<!--
+    <p>Selected country: {{country.Id}} - {{country.CountryName}}</p>
+    <p>Selected state: {{state.Id}} - {{state.StateName}}</p>
+    <p>Selected state: {{city.Id}} - {{city.CityName}}</p>
+-->
+
+        </tr>
+        
+<!--		</th>-->
+    </tr>
+                 </form>
+</table>
+  <div class="form-group text-left">
+         <label class="checkbox checkbox-custom checkbox-custom-sm inline-block">
+          <input type="checkbox" ng-model="user.accept" required><i></i> I agree to the <a href="javascript:;">Terms of Service</a> & <a href="javascript:;">Privacy Policy</a>
+        </label>
       </div>
-           <div class="form-group">
-        <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.name" required>
-      </div>
+
+   
+<!--
          <div ng-controller="SignupCtrl">
               <ul class="dropdown-menu dropdown-menu-right" role="menu">
                   <li ng-repeat="x in names" id="abj">
@@ -48,17 +127,10 @@
                   </li>
             </ul>
       </div>
-      <div class="form-group text-left">
-         <label class="checkbox checkbox-custom checkbox-custom-sm inline-block">
-          <input type="checkbox" ng-model="user.accept" required><i></i> I agree to the <a href="javascript:;">Terms of Service</a> & <a href="javascript:;">Privacy Policy</a>
-        </label>
-      </div>
-
-    </form>
-
+-->
     <div class="bg-slategray lt wrap-reset mt- text-left">
       <p class="m-0">
-        <a ui-sref="app.dashboard" class="btn btn-greensea b-0 text-lowercase pull-right" ng-disabled='form.$invalid'>Submit</a>
+        <a ui-sref="core.login" class="btn btn-greensea b-0 text-lowercase pull-right" ng-disabled='form.$invalid'>Submit</a>
         <a ui-sref="core.login" class="btn btn-lightred b-0 text-lowercase">Back</a>
       </p>
     </div>
@@ -66,3 +138,4 @@
   </div>
 
 </div>
+</body>
