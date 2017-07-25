@@ -152,7 +152,7 @@ app
 
 $scope.showLeave = function() {
 
-if ($scope.curr == 3)
+if ($scope.names[$scope.curr] == 'Leave')
   return true;
 else 
   return false;
@@ -163,11 +163,10 @@ else
     $scope.leave = ["Annual Leave", "Maternity Leave", "Sick Leave","Family Responsibility Leave","Study Leave","Leave for religious holidays","Unpaid leave"];
 
     $scope.getLvIndex = function getLvIndex(index) {
-    $scope.currIndex = index;
-    $scope.returnedLeav = $scope.leave[$scope.currIndex];    
-       
+    $scope.currIndex = index;  
+   $scope.returnedLeav = $scope.leave[$scope.currIndex];
 };
-    
+   
 
 
   
