@@ -14,3 +14,17 @@ app
       subtitle: 'Place subtitle here...'
     };
   });
+.controller('addCompany', function($scope))
+{
+    $scope.company={
+            companyName:'',
+            companyRegistration:'',
+            contact:'',
+            street:'',
+            state:'',
+            city:''
+            
+            };
+            
+            
+});
