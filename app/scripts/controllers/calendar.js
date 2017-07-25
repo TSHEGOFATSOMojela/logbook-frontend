@@ -26,16 +26,16 @@ app
 
     /* event source that contains custom events on the scope */
     $scope.events = [
-      {Objective:'Leave',Days:'3',title: 'Sick Leave',start: new Date(y, m, 1), className: ['b-l b-2x b-greensea'],comment:'I just had an accident'},
-        
-        
-      {Objective:'mongodb',desc:'happy mongodb',title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2), className: ['bg-dutch'],comment:'i dont care.'},
-      {Objective:'loopback',desc:'do it for me',id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false, className: ['b-l b-2x b-primary'],comment:'I love you sweetie.'},
-      {Objective:'nodejs',desc:'i dont care',id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false, className: ['b-l b-2x b-primary'],comment:'Im in need of you.'},
-      {Objective:'express',desc:'who is who boss',title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false, className: ['b-l b-2x b-default'],comment:'hoza nana'},
-      {Objective:'anguler',desc:'i love angulerjs',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/', className: ['b-l b-2x b-hotpink'],comment:'thuskee.'},
-      {Objective:'killing',desc:'hoza nana',title: 'Make cupcakes', start: new Date(y, m, 2), className: ['b-l b-2x b-info'], location:'Bratislava', comment:'The best in whole world.'},
-      {Objective:'deployment',desc:'khaya fm friday',title: 'Call wife', start: new Date(y, m, 6),end: new Date(y, m, 7), className: ['b-l b-2x b-red'], location:'Piestany', comment:'And say her hello.'}
+//      {Objective:'Leave',Days:'3',title: 'Sick Leave',start: new Date(y, m, 1), className: ['b-l b-2x b-greensea'],comment:'I just had an accident'},
+//        
+//        
+//      {Objective:'mongodb',desc:'happy mongodb',title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2), className: ['bg-dutch'],comment:'i dont care.'},
+//      {Objective:'loopback',desc:'do it for me',id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false, className: ['b-l b-2x b-primary'],comment:'I love you sweetie.'},
+//      {Objective:'nodejs',desc:'i dont care',id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false, className: ['b-l b-2x b-primary'],comment:'Im in need of you.'},
+//      {Objective:'express',desc:'who is who boss',title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false, className: ['b-l b-2x b-default'],comment:'hoza nana'},
+//      {Objective:'anguler',desc:'i love angulerjs',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/', className: ['b-l b-2x b-hotpink'],comment:'thuskee.'},
+//      {Objective:'killing',desc:'hoza nana',title: 'Make cupcakes', start: new Date(y, m, 2), className: ['b-l b-2x b-info'], location:'Bratislava', comment:'The best in whole world.'},
+//      {Objective:'deployment',desc:'khaya fm friday',title: 'Call wife', start: new Date(y, m, 6),end: new Date(y, m, 7), className: ['b-l b-2x b-red'], location:'Piestany', comment:'And say her hello.'}
     ];
 
     /* alert on dayClick */
