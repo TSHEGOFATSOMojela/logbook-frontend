@@ -28,7 +28,6 @@
                        </div>
                   </li>
             </ul>
-                 
             </div>
 
       
@@ -42,6 +41,20 @@
                 <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>
                 <div class="text-xs text-muted">{{e.start | date:"MMM dd"}} - {{e.end | date:"MMM dd"}}</div>
             <input ng-model="e.comment" class="form-control input-sm input-unstyled">
+            
+             <div class="form-group">
+            <p>Selected Value: <span class="radioValue">{{ data.group1 }} Leave</span> </p>
+            <md-radio-group ng-model="data.group1" layout="row">
+              <md-radio-button value="Sick" class="md-primary">Sick</md-radio-button>
+              <md-radio-button value="Annual"> Annual </md-radio-button>
+              <md-radio-button value="Study">Study</md-radio-button>
+            </md-radio-group>
+          <label class="control-label">Upload file</label>
+          <input ui-jq="filestyle" type="file" class="filestyle" ui-options="{
+            buttonText: 'Select files',
+            iconName: 'fa fa-inbox'
+          }" nv-file-select="" uploader="uploader" multiple>
+        </div>
         </div>
 
       </div>

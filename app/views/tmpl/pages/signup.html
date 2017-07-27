@@ -9,7 +9,7 @@
     <form name="form" class="form-validation mt-20" novalidate>
 
       <p class="help-block text-left">
-         Enter your personal details below:
+       Personal details:
       </p>
 
       <div class="form-group">
@@ -22,6 +22,14 @@
 
       <div class="form-group">
         <input type="password" placeholder="Password" class="form-control underline-input" ng-model="user.password" required>
+      </div>
+<!--        Edited a comany name and a mentor-->
+        <div class="form-group">
+        <input type="text" class="form-control underline-input" placeholder="Company Name" ng-model="user.companyName" required>
+      </div>
+        
+        <div class="form-group">
+        <input type="text" class="form-control underline-input" placeholder="Mentor Name" ng-model="user.MentorName" required>
       </div>
 
       <div class="form-group text-left">

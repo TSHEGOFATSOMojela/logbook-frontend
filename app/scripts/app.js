@@ -755,7 +755,14 @@ var app = angular
     .state('app.calendar', {
       url: '/calendar',
       controller: 'CalendarCtrl',
-      templateUrl: 'views/tmpl/calendar.html'
+      templateUrl: 'views/tmpl/calendar.html',
+          resolve: {
+        plugins: ['$ocLazyLoad', function($ocLazyLoad) {
+          return $ocLazyLoad.load([
+            'scripts/vendor/filestyle/bootstrap-filestyle.min.js'
+          ]);
+        }]
+      }
     })
     //app core pages (errors, login,signup)
       .state('core', {
