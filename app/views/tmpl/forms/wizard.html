@@ -4,9 +4,9 @@
 
 
   <!-- page header -->
-  <div class="pageheader">
+  <div class="pageheader" ng-contoller="FormWizardCtrl">
 
-    <h2>{{page.title}} <span>// {{page.subtitle}}</span></h2>
+    <h2>{{page.title}}</h2>
 
     <div class="page-bar">
 
@@ -46,7 +46,7 @@
           <span class="badge badge-default pull-right wizard-step">1</span>
         </uib-tab-heading>
 
-        <form  name="step1" role="form" novalidate class="form-validation">
+        <form  ng-submit="FormWizardCtrl" name="step1" role="form" novalidate class="form-validation">
 
           <div class="row">
             <div class="form-group col-md-6">
@@ -119,10 +119,10 @@
     
         
   <!-- /page content -->
-      
+      </uib-tabset>
 
 
     </div>
         
-
+    
 </div>
