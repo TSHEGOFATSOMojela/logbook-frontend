@@ -10,21 +10,10 @@
 app
   .controller('FormWizardCtrl', function ($scope) {
     $scope.page = {
-      title: 'Form Wizard',
-      subtitle: 'Place subtitle here...'
+      title: 'Adding Company'
     };
   });
-.controller('addCompany', function($scope))
-{
-    $scope.company={
-            companyName:'',
-            companyRegistration:'',
-            contact:'',
-            street:'',
-            state:'',
-            city:''
-            
-            };
+
+    
             
             
-});
