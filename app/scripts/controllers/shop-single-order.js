@@ -44,10 +44,10 @@ $scope.remove = function(title){
 		$scope.InternObjectives.splice( index, 1 );		
 	};
     
-   
-   
-    
-    
+   $scope.edit=function(InternObjective){
+   console.log(InternObjectives);
+       $scope.clickedObjective=InternObjective;
+ }; 
     
 });
 

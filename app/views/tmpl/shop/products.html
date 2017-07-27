@@ -1,123 +1,69 @@
-<div class="pagecontent">
-    
+<body>
 <div class="pagecontent">
     
     <div class="row">
        
           <div class="col-md-12">
  
-  <section class="tile" fullscreen="isFullscreen01">  
-    
-      <div class="tile-header dvd dvd-btm">
-            <h1 class="custom-font"><strong>INTERNS</strong></h1>
-            <ul class="controls">
+  <section class="tile" fullscreen="isFullscreen01"> 
+
+      
+      
+<div class="tile-header dvd dvd-btm">
+<h1 class="custom-font"><strong>INTERNS</strong></h1>
+    <ul class="controls">
 <!-- <li><a href="javascript:window.print()" class="fa fa-plus mr-5" uib-tooltip="Print"><i class="fa fa-print"></i></a></li>-->
-              <li><a ui-sref="app.shop.single-order" ><i class="fa fa-plus mr-5"  ></i>Add Objectives</a></li>
-
-                 
-
-           
-  
-              <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
-
-                <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
-
-                <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-                  <li>
-                    <a href tile-control-toggle>
-                      <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
-                      <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href tile-control-refresh ng-click="ajaxFaker()">
-                      <fa name="refresh"></fa> Refresh
-                    </a>
-                  </li>
-                 
-                  <li>
-                    <a href tile-control-lightbox>
-                      <fa name="magnet"></fa> Open in Lightbox
-                    </a>
-                  </li>
-
-                </ul>
-
-              </li>
-              <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
-            </ul>
-            
-          </div>
-    
-<!--      <div class="table-responsive-wide">-->
-<body ng-controller="ProductsCtrl">
-<div>
-    
-<!--
-    <div class="form-group">
-             
-              
-         
-
-    
-      </div>
--->
-        <div class="row">
-            
-            
-          
-            
-            <div class="col-md-12">
-                 
-                     
-                <div class="panel panel-default">
-                    
-                     <div class="row">
-                         
-                         <div class="col-md-8 col-sm-12">
-                             <div class="inline-controls">
-                                 <div class="dataTables_length" id="DataTables_Table_0_length">
-                                     
-                                     <label  class="col-md-8 col-sm-12">View Interns<br><select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>
-                                     </label>
-                                  
-                                 </div>
-                             
-                             </div>
-                         </div>
-                         
-                         
-                         <div class="col-md-3 col-sm-8"><div class="pull-right"><div id="DataTables_Table_0_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control input-sm" placeholder="" ng-model="searchKeyword"aria-controls="DataTables_Table_0"></label>
-                         
-                         
-                         
-                         
-                         </div>
-                         
-                         
-                         
-                         </div>
-                         
-                         
-                         
-                         
-                         </div>
-                    
-                    
-                    
-                    </div>
-                    
-                    
-                    
-                    
-                    
-                    <div class="panel-body">
-<table class="table">
-    
-    <tr>
         
-  
-		<th>Name
+    <li><a ui-sref="app.shop.single-order" ><i class="fa fa-plus mr-5"  ></i>Add Objectives</a></li>
+        
+    <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+     <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+        <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+         <li>
+           <a href tile-control-toggle>
+              <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                 </a>
+          </li>
+           <li>
+                <a href tile-control-refresh ng-click="ajaxFaker()">
+               <fa name="refresh"></fa> Refresh
+                </a>
+            </li>
+            <li>
+                 <a href tile-control-lightbox>
+                 <fa name="magnet"></fa> Open in Lightbox
+                </a>
+            </li>
+
+        </ul>
+
+     </li>
+     <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+    </ul>
+   </div> 
+      
+      
+      
+        
+      
+
+<div ng-app="app">
+  <div class="panel" data-ng-controller="ProductsCtrl">
+  <div class="panel-heading border">    
+
+  </div>
+  <div class="panel-body">
+      
+      <table class="table table-bordered bordered table-striped table-condensed datatable" ui-jq="dataTable" ui-options="dataTableOpt">
+          
+      <thead>
+          
+
+        <tr>
+      
+          <th>ID</th>
+        <th>Name
 		</th>
 		<th>Surname
 		</th>
@@ -135,9 +81,17 @@
 		</th>
           <th>Actions
 		</th>
-	</tr>
-	<tr>
+        </tr>
+      </thead>
+                    	<tr>
+          
+
     <form class="form-horizontal" role="form" ng-submit="addRow()">
+        	<td class="col-md">
+            
+            <input type="number" class="form-control" name="name"
+				ng-model="index" />
+		</td>
 		<td class="col-md">
             
             <input type="text" class="form-control" name="name"
@@ -152,7 +106,7 @@
 		
 		</td>
         <td class="col-md">
-			<input type="text" class="form-control" name="gender"
+			<input type="text" class="form-control"  name="gender"
 				ng-model="gender" />
 		</td>
 		<td class="col-md">
@@ -173,99 +127,59 @@
 		
 			
         </td>
-        
+ 
           <td class="col-md">								
 		
 			<input type="submit" value="Add Intern"  ng-click="addRow()"class="btn btn-xs btn-default"/>
         </td>
         </form>
+    
 	    </tr>
+        <tbody>
+  
     
-    
-    
-    
-    
-    
-<!--
-    
-	<tr>
-		<th>Name
-		</th>
-		<th>Surname
-		</th>
-		<th>Email
-		</th>
-        <th>Gender
-		</th>
-        <th>Company
-		</th>
-        <th>Position
-		</th>
-          <th>Contacts
-		</th>
-        <th>Performance
-		</th>
-          <th>Actions
-		</th>
-	</tr>
--->
-	<tr ng-repeat="Intern in Interns  | filter: searchKeyword ">
-        
-		<td>{{Intern.name}}
-		</td>
-		<td>{{Intern.surname}}
-		</td>
-		<td>{{Intern.email}}
-		</td>
-        <td>{{Intern.gender}}
-		</td>
-		<td>{{Intern.company}}
-		</td>
-		<td>{{Intern.position}}
-		</td>
-        <td>{{Intern.contacts}}
-		</td>
-         <td>
-        <a ui-sref="app.calendar" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View activities</a>
-               </td>
-        <td>
-         <input type="button" class="btn btn-xs btn-default" ng-click="remove(Intern.name)" value="Remove">
-    </td>
-            <td>
-         <input type="button" class="btn btn-xs btn-default" ng-click="edit()"value="Edit">
-    </td>
-	    </tr>
-</table>
-	  </div>			
-</div>
-  </div>
-    </div>
-    
-    
-    
-    
-    
-    
-<!--    <div class="row"><div class="col-md-4 col-sm-12"><div class="inline-controls"><div class="dataTables_length"><label>View <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> records</label></div></div></div><div class="col-md-4 col-sm-12"><div class="inline-controls text-center"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Found 300 records</div></div></div><div class="col-md-4 col-sm-12"><div class="dataTables_paginate paging_input" id="DataTables_Table_0_paginate"><div class="pagination-panel"> Page <a href="#" class="btn btn-sm btn-default prev disabled" title="Previous"><i class="fa fa-angle-left"></i></a><input type="text" class="pagination-panel-input form-control input-sm input-inline w-40" maxlenght="5" style="text-align:center; margin: 0 6px"><a href="#" class="btn btn-sm btn-default next" title="Next"><i class="fa fa-angle-right"></i></a> of <span class="pagination-panel-total">30</span></div></div></div></div>-->
-    
-    
-    
-    
-    
-    
-    </div>
-    
-    
-    
- 
-    
-    
-    
-    
-</body>
-<!--          </div>-->
+     <tr ng-repeat="n in data" ng-include="getTemplates(n)">            
+          </tr>
+        </tbody>
+    </table>
+    <script type="text/ng-template" id="view.html">
+  		<td style="text-align:center;">{{$index+1}}</td>
+            <td>{{n[1]}}</td>
+            <td>{{n[2]}}</td>
+            <td>{{n[3]}}</td>
+            <td>{{n[4]}}</td>
+            <td>{{n[5]}}</td>
+            <td>{{n[6]}}</td>
+            <td>{{n[7]}}</td>
+            <td>  <a ui-sref="app.calendar" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View activities</a></td>
+            <td><span class="btn btn-sm btn-success" ng-click="edit(n)"><i class="fa fa-edit"></i></span>
+                
+            <span class="btn btn-sm btn-warning" ng-click="remove(n)"><i class="fa fa-trash"></i></span>
+            </td>
+</script>
+<!--selected is an array json object with eight deatils inside it ,so each detail is returned if you select specific object  i hoep you get me,jea so i must start with an index of 0 on selected?or m misunderstanding u,how can i add to the table?-->
+    <script type="text/ng-template" id="edit.html">
+  <td style="text-align:center;">{{$index+1}}</td>
+  <td><input type="text" class="form-control" ng-model="selected[0]" value="{{n[0]}}"/></td>
+  <td><input type="text" class="form-control" ng-model="selected[1]" value="{{n[1]}}"/></td>
+  <td><input type="text" class="form-control" ng-model="selected[2]" value="{{n[2]}}"></td>
+  <td><input type="text" class="form-control" ng-model="selected[3]" value="{{n[3]}}"/></td>
+  <td><input type="text" class="form-control" ng-model="selected[4]" value="{{n[4]}}"/></td>
+  <td><input type="text" class="form-control" ng-model="selected[5]" value="{{n[5]}}"/></td>
+  <td><input type="text" class="form-control" ng-model="selected[6]" value="{{n[6]}}"/></td>
+  <td><input type="text" class="form-control" ng-model="selected[7]" value="{{n[7]}}"/></td>
       
+  <td><span class="btn btn-sm btn-primary" ng-click="save()"><i class="fa fa-save"></i></span>
+  <span class="btn btn-sm btn-info" ng-click="clear()"><i class="fa fa-remove"></i></span>
+  </td>
+ 
+
+</script>
+  </div>
+</div>
+</div>
  </section>
                </div>
        </div>
 </div>
+    </body>
