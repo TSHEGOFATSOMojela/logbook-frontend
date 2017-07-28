@@ -10,7 +10,7 @@
 app
   .controller('ProfileCtrl', function ($scope) {
     $scope.page = {
-      title: 'Profile Page',
+      title: 'Profile',
       subtitle: 'Place subtitle here...'
     };
   });
