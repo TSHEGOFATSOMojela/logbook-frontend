@@ -24,11 +24,13 @@
             <li ui-sref-active="active"><a ui-sref="app.forms.common"><fa name="caret-right"></fa> {{ 'Mentors' | translate }}</a></li>
             <li ui-sref-active="active"><a ui-sref="app.forms.validate"><fa name="caret-right"></fa> {{ 'Menu.VALIDATION_ELEMENTS' | translate }}</a></li>
             <li ui-sref-active="active"><a ui-sref="app.forms.wizard"><fa name="caret-right"></fa> {{ 'Companies' | translate }} <span class="badge badge-success">13</span></a></li>
+<!--
             <li ui-sref-active="active"><a ui-sref="app.forms.upload"><fa name="caret-right"></fa> {{ 'Menu.FILE_UPLOAD' | translate }}</a></li>
             <li ui-sref-active="active"><a ui-sref="app.forms.imgcrop"><fa name="caret-right"></fa> {{ 'Menu.IMAGE_CROP' | translate }}</a></li>
+-->
           </ul>
-        </li>
 <!--
+        </li>
         <li ui-sref-active="active" ng-class="{'open':$state.includes('app.ui')}">
           <a ui-sref="app.ui"><fa name="pencil"></fa> <span>{{ 'Menu.UI_KIT' | translate }}</span></a>
           <ul>
@@ -86,7 +88,7 @@
 -->
 
          <li ui-sref-active="active" ng-class="{'open':$state.includes('app.shop')}">
-          <a ui-sref="app.shop"><fa name="list"></fa> <span>{{ 'Mentor' | translate }}</span></a>
+          <a ui-sref="app.shop"><fa name="desktop"></fa> <span>{{ 'Mentor' | translate }}</span></a>
           <ul>
 <!--            <li ui-sref-active="active"><a ui-sref="app.shop.orders"><fa name="caret-right"></fa> {{ 'Menu.ORDERS' | translate }}</a></li>-->
             <li ui-sref-active="active"><a ui-sref="app.shop.single-order"><fa name="caret-right"></fa> {{ 'Add Objectives' | translate }}</a></li>
