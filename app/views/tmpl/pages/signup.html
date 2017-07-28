@@ -1,81 +1,94 @@
 <body controller="SignupCtrl">
-<div class="page page-core page-login" >
-
-  <div class="text-center"><h3 class="text-light text-white"><span class="text-lightred"></span>INTERN LOGBOOK</h3></div>
-
-  <div class="container bg-white text-center">
-
-    <h2 class="text-light text-greensea">Sign Up</h2>
+ <div class="page page-core page-login" >
+   <div class="text-center"><h3 class="text-light text-white"><span class="text-lightred"></span>INTERN LOGBOOK</h3></div>
+     <div class="container bg-white text-center">
+         <h2 class="text-light text-greensea">Sign Up</h2>
+         
 <table class="table">
-    <form name="form" class="form-validation mt-20" novalidate>
+    
+    <form name="form" class="form-validation mt-24" novalidate>
     <tr>
-          
-
-      <p class="help-block text-left">
-         Enter your personal details below:
-      </p> 
+          <p class="help-block text-left">
+           Enter your details below:
+        </p> 
   
-		<th><div class="form-group">
-        <input type="text" class="form-control underline-input" placeholder="Full Name" ng-model="user.fullName" required>
-      </div>
+		<th>
+            <div class="form-group">
+            <input type="text" class="form-control underline-input" placeholder="Full Name" ng-model="user.fullName" required>
+            </div>
 		</th>
-		<th><div class="form-group">
-        <input type="text" class="form-control underline-input" placeholder="Last Name" ng-model="user.lastName" required>
-      </div>
+        
+		<th>
+            <div class="form-group">
+           <input type="text" class="form-control underline-input" placeholder="Last Name" ng-model="user.lastName" required>
+           </div>
 		</th>
-		<th>   <div class="form-group">
-        <input type="text" class="form-control underline-input" placeholder="username" ng-model="user.userName" required>
-      </div>
+        
+		<th>   
+            <div class="form-group">
+            <input type="text" class="form-control underline-input" placeholder="Username" ng-model="user.userName" required>
+            </div>
 		</th>
-        <th>   <div class="form-group">
-        <input type="email" class="form-control underline-input" placeholder="Email" ng-model="user.email" required>
-      </div>
+        
+        <th> 
+            <div class="form-group">
+            <input type="email" class="form-control underline-input" placeholder="Email" ng-model="user.email" required>
+            </div>
 		</th>
-        <th>   <div class="form-group">
-        <input type="text" class="form-control underline-input" placeholder="gender" ng-model="user.gender" required>
-      </div>
+         
+        <th>   
+            <div class="form-group">
+            <input type="text" class="form-control underline-input" placeholder="Gender" ng-model="user.gender" required>
+            </div>
 		</th>
     
 	</tr>
+        
 	<tr>
           <th>
-      <div class="form-group">
-        <input type="password" placeholder="Password" class="form-control underline-input" ng-model="user.password" required>
-      </div>
-		</th>
+             <div class="form-group">
+             <input type="password" placeholder="Password" class="form-control underline-input" ng-model="user.password" required>
+             </div>
+		  </th>
+        
         <th>
-        <div class="form-group">
-        <input type="password" placeholder="Confirm Password" class="form-control underline-input" ng-model="user.comfirmPassword" required>
-      </div>
+           <div class="form-group">
+           <input type="password" placeholder="Confirm Password" class="form-control underline-input" ng-model="user.comfirmPassword" required>
+           </div>
 		</th>
+        
+        <th>
+            <div class="form-group">
+            <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.contacts" required>
+            </div>
+		</th>
+        
+        
+          <th>
 <!--
-          <th> <div class="form-group">
-        <input type="text" class="form-control underline-input" placeholder="Position" ng-model="user.position" required>
-      </div>
-		</th>
+            <div class="form-group">
+            <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.contacts" required>
+            </div>
 -->
-        <th>        <div class="form-group">
-        <input type="number" class="form-control underline-input" placeholder="Contacts" ng-model="user.contacts" required>
-      </div>
 		</th>
         
         
-        
-        
-        
-    <th> 
-        
+      <th> 
+      </th>  
         <tr>
  
     <form class="form-inline" name="form">
-       
-        <div class="form-group">
-            <br><label for="Company" class="control-label"></label><br>
+        
+        <th>
+           <div class="form-group">
+               
+            <label for="Company" class="control-label"></label>
             <select name='Company' id="Company" class="form-control" ng-model="Company" ng-options="Company as Company.CompanyName for Company in Companies" required>
                 <option value="" disabled>Companies</option>
             </select>
-        </div>
-           
+           </div>
+        </th>
+        
          <th>
         <div class="form-group">
             <label for="Mentor" class="control-label"></label>
@@ -83,7 +96,7 @@
                 <option value="" disabled>Mentors</option>
             </select>
         </div>
-             </th>
+         </th>
         <th>
         <div class="form-group">
             <label for="Position" class="control-label"></label>
@@ -91,18 +104,14 @@
                 <option value="" disabled>Position</option>
             </select>
         </div>
-             </th>
-<!--        <button class="btn btn-primary" ng-disabled='!city.Id' type="button">Create</button>-->
+        </th>
+
     </form>
-<!--
-    <p>Selected country: {{country.Id}} - {{country.CountryName}}</p>
-    <p>Selected state: {{state.Id}} - {{state.StateName}}</p>
-    <p>Selected state: {{city.Id}} - {{city.CityName}}</p>
--->
+
 
         </tr>
         
-<!--		</th>-->
+
     </tr>
                  </form>
 </table>
@@ -112,22 +121,6 @@
         </label>
       </div>
 
-   
-<!--
-         <div ng-controller="SignupCtrl">
-              <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                  <li ng-repeat="x in names" id="abj">
-                      <div class="p-15 bg-white">
-                            <button type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addEvent()" uib-tooltip="Doule-click to calendar day to add event" tooltip-placement="bottom" ><i ng-click="setCurrent($index)" class="fa fa-plus"></i></button>             
-                          
-                          
-                          <h4 class="custom-font text-default m-0">{{x}}</h4>
-                    
-                       </div>
-                  </li>
-            </ul>
-      </div>
--->
     <div class="bg-slategray lt wrap-reset mt- text-left">
       <p class="m-0">
         <a ui-sref="core.login" class="btn btn-greensea b-0 text-lowercase pull-right" ng-disabled='form.$invalid'>Submit</a>
