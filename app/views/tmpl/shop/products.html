@@ -1,39 +1,39 @@
-<body>
-<div class="pagecontent">
+<body  ng-app="app">
+    
+<div class="pagecontent"  data-ng-controller="ProductsCtrl">
     
     <div class="row">
        
-          <div class="col-md-12">
+      <div class="col-md-12">
  
-  <section class="tile" fullscreen="isFullscreen01"> 
+<section class="tile" fullscreen="isFullscreen01"> 
 
-      
-      
 <div class="tile-header dvd dvd-btm">
-<h1 class="custom-font"><strong>INTERNS</strong></h1>
+    
+   <h1 class="custom-font"><strong>INTERNS</strong></h1>
     <ul class="controls">
 <!-- <li><a href="javascript:window.print()" class="fa fa-plus mr-5" uib-tooltip="Print"><i class="fa fa-print"></i></a></li>-->
-        
-    <li><a ui-sref="app.shop.single-order" ><i class="fa fa-plus mr-5"  ></i>Add Objectives</a></li>
+   <li><a ui-sref="app.shop.single-order" ><i class="fa fa-plus mr-5"  ></i>Add Objectives</a></li>
         
     <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
-     <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+        
+           <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
         <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
          <li>
-           <a href tile-control-toggle>
-              <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                <a href tile-control-toggle>
+                <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
                 <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
-                 </a>
+                </a>
           </li>
            <li>
-                <a href tile-control-refresh ng-click="ajaxFaker()">
-               <fa name="refresh"></fa> Refresh
-                </a>
+                  <a href tile-control-refresh ng-click="ajaxFaker()">
+                  <fa name="refresh"></fa> Refresh
+                  </a>
             </li>
             <li>
                  <a href tile-control-lightbox>
                  <fa name="magnet"></fa> Open in Lightbox
-                </a>
+                 </a>
             </li>
 
         </ul>
@@ -43,143 +43,162 @@
     </ul>
    </div> 
       
-      
-      
-        
-      
-
-<div ng-app="app">
-  <div class="panel" data-ng-controller="ProductsCtrl">
-  <div class="panel-heading border">    
-
-  </div>
-  <div class="panel-body">
-      
-      <table class="table table-bordered bordered table-striped table-condensed datatable" ui-jq="dataTable" ui-options="dataTableOpt">
+<div>
+  <div class="panel">
+   <div class="row">
+                         
+      <div class="col-md-8 col-sm-12">
+                             
+          <div class="inline-controls">
+           <div class="dataTables_length" id="DataTables_Table_0_length">
+            <label  class="col-md-8 col-sm-12">View Interns<br>
+                
+                <select name="DataTables_Table_0_length" aria-controls="DataTables_Table_0" class="form-control input-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select> 
+            </label>
+                                  
+            </div>
+      </div>
+      </div>
+                <div class="col-md-3 col-sm-8">
+                    <div class="pull-right">
+                        <div id="DataTables_Table_0_filter" class="dataTables_filter">
+                            <label>
+                                Search<input type="search" class="form-control input-sm" placeholder="Search" ng-model="searchKeyword"aria-controls="DataTables_Table_0">
+                            </label>
+              
+                         </div>
+                    </div>
+                  </div>
+                  </div>      
+<div class="panel-body">
+<table class="table table-bordered bordered table-striped table-condensed datatable" ui-options="dataTableOpt">
           
-      <thead>
+     <thead>
           
 
         <tr>
       
           <th>ID</th>
-        <th>Name
-		</th>
-		<th>Surname
-		</th>
-		<th>Email
-		</th>
-        <th>Gender
-		</th>
-        <th>Company
-		</th>
-        <th>Position
-		</th>
-          <th>Contacts
-		</th>
-        <th>Performance
-		</th>
-          <th>Actions
-		</th>
+        <th>Name</th>
+		<th>Surname</th>
+		<th>Email</th>
+        <th>Gender</th>
+        <th>Company</th>
+        <th>Position</th>
+        <th>Contacts</th>
+        <th>Performance</th>
+        <th>Actions</th>
+            
         </tr>
+         
       </thead>
-                    	<tr>
+ 
+    <tr>
           
-
-    <form class="form-horizontal" role="form" ng-submit="addRow()">
-        	<td class="col-md">
-            
-            <input type="number" class="form-control" name="name"
-				ng-model="index" />
-		</td>
+<form class="form-horizontal" role="form" ng-submit="addRow()">
+    
+    <td class="col-md"></td>
+    
 		<td class="col-md">
-            
-            <input type="text" class="form-control" name="name"
-				ng-model="name" />
+            <input type="text" class="form-control" placeholder="name" name="name"
+            ng-model="newIntern.name" />
 		</td>
-		<td class="col-md"><input type="text" class="form-control" name="surname"
-				ng-model="surname" />
+    
+		<td class="col-md">
+            <input type="text" placeholder="surname" class="form-control" name="surname"
+            ng-model="newIntern.surname" />
 		</td>
+    
 		<td class="col-md">	
-			<input type="email" class="form-control" name="email"
-				ng-model="email" />
-		
+           <input type="email" class="form-control" placeholder="email@example.com" name="email"
+           ng-model="newIntern.email" />
 		</td>
+    
         <td class="col-md">
-			<input type="text" class="form-control"  name="gender"
-				ng-model="gender" />
+			<input type="text" class="form-control" placeholder="gender" name="gender"
+			ng-model="newIntern.gender" />
 		</td>
+    
 		<td class="col-md">
-			<input type="text" class="form-control" name="company"
-				ng-model="company" />
-		
+			<input type="text" class="form-control" placeholder="company" name="company"
+			ng-model="newIntern.company" />
 		</td>
+    
 		<td class="col-md">
-			<input type="text" class="form-control" name="position"
-				ng-model="position" />
+			<input type="text" class="form-control" placeholder="position" name="position"
+			ng-model="newIntern.position" />
 		</td>
+    
         <td class="col-md">
 			<input type="number" class="form-control" name="contacts"
-				ng-model="contacts" placeholder="+27"/>
+			ng-model="newIntern.contacts" placeholder="+27"/>
 		</td>
         
-        <td class="col-md">								
-		
-			
-        </td>
+        <td class="col-md"></td>
  
-          <td class="col-md">								
-		
-			<input type="submit" value="Add Intern"  ng-click="addRow()"class="btn btn-xs btn-default"/>
+        <td class="col-md">								
+         <input type="submit" value="Add Intern"  ng-click="addNewIntern(newIntern)"class="btn btn-xs btn-default"/>
         </td>
+    
         </form>
     
 	    </tr>
-        <tbody>
-  
     
-     <tr ng-repeat="n in data" ng-include="getTemplates(n)">            
-          </tr>
+    
+        <tbody>
+     <tr ng-repeat="Intern in Interns | filter: searchKeyword  track by $index" ng-include="getTemplates(Intern)"></tr>
         </tbody>
+    
     </table>
-    <script type="text/ng-template" id="view.html">
+      
+<script type="text/ng-template " id="view.html">
+
   		<td style="text-align:center;">{{$index+1}}</td>
-            <td>{{n[1]}}</td>
-            <td>{{n[2]}}</td>
-            <td>{{n[3]}}</td>
-            <td>{{n[4]}}</td>
-            <td>{{n[5]}}</td>
-            <td>{{n[6]}}</td>
-            <td>{{n[7]}}</td>
-            <td>  <a ui-sref="app.calendar" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View activities</a></td>
-            <td><span class="btn btn-sm btn-success" ng-click="edit(n)"><i class="fa fa-edit"></i></span>
-                
-            <span class="btn btn-sm btn-warning" ng-click="remove(n)"><i class="fa fa-trash"></i></span>
+            <td>{{Intern[1]}}</td>
+            <td>{{Intern[2]}}</td>
+            <td>{{Intern[3]}}</td>
+            <td>{{Intern[4]}}</td>
+            <td>{{Intern[5]}}</td>
+            <td>{{Intern[6]}}</td>
+            <td>{{Intern[7]}}</td>
+            <td><a ui-sref="app.calendar" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View activities</a></td>
+            <td>
+    <span class="btn btn-sm btn-success" ng-click="edit(Intern)"><i class="fa fa-edit"></i></span>
+    <span class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
             </td>
 </script>
-<!--selected is an array json object with eight deatils inside it ,so each detail is returned if you select specific object  i hoep you get me,jea so i must start with an index of 0 on selected?or m misunderstanding u,how can i add to the table?-->
-    <script type="text/ng-template" id="edit.html">
+
+<script type="text/ng-template" id="edit.html">
+
   <td style="text-align:center;">{{$index+1}}</td>
-  <td><input type="text" class="form-control" ng-model="selected[0]" value="{{n[0]}}"/></td>
-  <td><input type="text" class="form-control" ng-model="selected[1]" value="{{n[1]}}"/></td>
-  <td><input type="text" class="form-control" ng-model="selected[2]" value="{{n[2]}}"></td>
-  <td><input type="text" class="form-control" ng-model="selected[3]" value="{{n[3]}}"/></td>
-  <td><input type="text" class="form-control" ng-model="selected[4]" value="{{n[4]}}"/></td>
-  <td><input type="text" class="form-control" ng-model="selected[5]" value="{{n[5]}}"/></td>
-  <td><input type="text" class="form-control" ng-model="selected[6]" value="{{n[6]}}"/></td>
-  <td><input type="text" class="form-control" ng-model="selected[7]" value="{{n[7]}}"/></td>
+<!--  <td><input type="text" class="form-control" ng-model="selected[0]" value="{{Intern[0]}}"/></td>-->
+  <td><input type="text" class="form-control" ng-model="selected[1]" value="{{Intern[1]}}"/></td>
+  <td><input type="text" class="form-control" ng-model="selected[2]" value="{{Intern[2]}}"></td>
+  <td><input type="text" class="form-control" ng-model="selected[3]" value="{{Intern[3]}}"/></td>
+  <td><input type="text" class="form-control" ng-model="selected[4]" value="{{Intern[4]}}"/></td>
+  <td><input type="text" class="form-control" ng-model="selected[5]" value="{{Intern[5]}}"/></td>
+  <td><input type="text" class="form-control" ng-model="selected[6]" value="{{Intern[6]}}"/></td>
+  <td><input type="text" class="form-control" ng-model="selected[7]" value="{{Intern[7]}}"/></td>
       
-  <td><span class="btn btn-sm btn-primary" ng-click="save()"><i class="fa fa-save"></i></span>
-  <span class="btn btn-sm btn-info" ng-click="clear()"><i class="fa fa-remove"></i></span>
+  <td>
+      <td>
+  <span class="btn btn-sm btn-primary"  ng-click="save()"><i class="fa fa-save"></i></span>
+  <td><span class="btn btn-sm btn-info" ng-click="clear()"><i class="fa fa-remove"></i></span>
+      
   </td>
  
 
 </script>
-  </div>
-</div>
-</div>
- </section>
-               </div>
+           </div>
        </div>
+   </div>
+</section>
+     </div>
+   </div>
 </div>
-    </body>
+</body>
