@@ -1,3 +1,4 @@
+<!--
 <style>
 #myProgress {
   width: 100%;
@@ -27,6 +28,7 @@
     }
   }
 }</script>
+-->
 
 <body  ng-app="app">
     
@@ -144,11 +146,11 @@
            ng-model="newObjective.date" />
 		</td>
     
-        <td class="col-md" >
+        <td class="col-md-2" >
 <!--      <button  onclick="move()">example Load</button>-->
-    <input value="example"  onclick="move()"class="btn btn-xs btn-default"/>
+<!--      <input value="example"  onclick="move()"class="btn btn-xs btn-default"/>-->
             </td>
-        <td class="col-md">								
+         <td class="col-md-2" >								
          <input type="submit" value="Add Objectives"  ng-click="addNewObjective(newObjective)"class="btn btn-xs btn-default"/>
         </td>
     
@@ -169,9 +171,10 @@
             <td>{{objective[1]}}</td>
             <td>{{objective[2]}}</td>
             <td>{{objective[3]}}</td>
-             <td><div id="myProgress">
-  <div id="myBar">10%</div>
-</div>
+             <td> 
+                <div class="col-md-9">
+            <uib-progressbar class="progress-striped not-rounded" value="56" type="warning">56%</uib-progressbar>
+            </div>
             </td>
 
             <td>

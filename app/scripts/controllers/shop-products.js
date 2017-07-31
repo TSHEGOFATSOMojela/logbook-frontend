@@ -564,7 +564,7 @@ $scope.dataTableOpt = {
 
     //add into a table
     $scope.addNewIntern=function(newIntern)
-     { 
+     {
       
          var i = $scope.Interns.length +1;
          $scope.Interns[i]= Object.entries(newIntern).map((value)=>(value));
