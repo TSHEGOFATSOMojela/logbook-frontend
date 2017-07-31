@@ -545,6 +545,13 @@ var app = angular
         }]
       }
     })
+      
+ //forms/regIntern
+    .state('app.forms.regIntern', {
+      url: '/regIntern',
+      controller: 'FormsRegInternCtrl',
+      templateUrl: 'views/tmpl/forms/regIntern.html'
+    })
     //forms/validate
     .state('app.forms.validate', {
       url: '/validate',
