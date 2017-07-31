@@ -3,8 +3,10 @@
 
   <div class="tbox tbox-sm">
 
-
+        
+      
     <div class="tcol w-lg bg-tr-white lt b-r">
+
         <!-- Split button -->
             <div class="btn-group mb-130">   
             <button type="button" class="btn btn-info">Select Objective</button>
@@ -118,19 +120,6 @@
             <div class="mt-10">{{event.url}}</div>
           </div>
         </div>
-          
-          <!--I don't whta im doing-->
-           <div class="fc-overlay">
-          <div class="panel b-solid">
-            <h3>Objective: {{love.Objective}}</h3>
-              <h5>Description: {{love.leavetype}}</h5>
-            <div class="b-b b-solid mb-10"></div>
-            <div class="text-muted"><i class="icon-calendar mr-5"></i> {{love.start | date:'medium'}}</div>
-            <div class="text-muted" ng-show='event.end'><i class="icon-clock mr-5"></i> {{love.end | date:'medium'}}</div>
-            <div class="mt-10">Comment: {{love.comment}}</div>
-          </div>
-        </div>
-
         <div class="calendar" ng-model="eventSources"  calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
 
 
