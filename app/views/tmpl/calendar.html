@@ -5,34 +5,28 @@
 
 
     <div class="tcol w-lg bg-tr-white lt b-r">
-                        
-   
-            <!-- Split button -->
-            
-
-            <div class="btn-group mb-130">
+        <!-- Split button -->
+            <div class="btn-group mb-130">   
             <button type="button" class="btn btn-info">Select Objective</button>
               <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
-                
-              <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                  <li ng-repeat="x in names">
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <li ng-repeat="x in objective">
                       <div class="p-15 bg-white">
                             <button type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addEvent()" uib-tooltip="Doule-click to calendar day to add event" tooltip-placement="bottom" ><i ng-click="setCurrent($index)" class="fa fa-plus"></i></button> 
-                          <h4 class="custom-font text-default m-0">{{x}}</h4>
+                          <h4 class="custom-font text-default m-0">{{x.objectname}}</h4>
                        </div>
                   </li>
             </ul>
-            </div>
-         
-      <div class="p-15">
-
+              </div>
+        <div class="p-15">
         <div ng-repeat="e in events" class="p-10 mb-10 event-control {{e.className[0]}}">
-            <div class="form-group" >
+            <div class="form-group">
             <h4>{{e.Objective}}</h4>
             <h5>{{e.desc}}</h5>
+            <h6>{{e.dur}}</h6>
                 <input ng-model="e.title" class="form-control input-sm input-unstyled">
                 <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>
                 <div class="text-xs text-muted">{{e.start | date:"MMM dd"}} - {{e.end | date:"MMM dd"}}</div>
@@ -40,59 +34,55 @@
                 
             </div>
         </div>
-          
-      
-
-      </div>
-        
-        <!-- just trying something -->
-        
-          <div class="p-15">
-
-        <div class="p-10 mb-10 event-control {{e.className[0]}}">
-            <div class="form-group" >
-            <h4>{{event.Objective}}</h4>
-            <h5>{{event.returnedLeav}}</h5>
-                <h5>{{event.Days}} days</h5>
-                <input ng-model="e.title" class="form-control input-sm input-unstyled">
-                <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>
-                <div class="text-xs text-muted">{{event.start | date:"MMM dd"}} - {{event.end | date:"MMM dd"}}</div>
-                <input ng-model="comment" class="form-control input-sm input-unstyled">
-                
-            <div class="form-group">
-           <p>Selected: {{returnedLeav}}</p>
-            <div class="btn-group mb-20">
-              <button type="button" class="btn btn-info">Select Leave Type</button>
+    </div>
+</div>
+      <!--trying-->
+    <div class="tcol w-lg bg-tr-white lt b-r">
+        <!-- Split button -->
+            <div class="btn-group mb-130">   
+            <button type="button" class="btn btn-info">Select Leave Type</button>
               <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
               </button>
-              <ul class="dropdown-menu dropdown-menu-right" role="menu" >
-                  <li ng-repeat="l in leave" ><a href="" ng-click="getLvIndex($index)">{{l}}</a></li>
-                </ul>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <li ng-repeat="l in leave">
+                      <div class="p-15 bg-white">
+                            <button type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addLeave()" ng-disabled="" uib-tooltip="Doule-click to calendar day to add leav" tooltip-placement="bottom" ><i ng-click="setCurrents($index)"  class="fa fa-plus"></i></button> 
+                          <h4 class="custom-font text-default m-0">{{l}}</h4>
+                       </div>
+                  </li>
+            </ul>
+              </div>
+        <div class="p-15">
+        <div ng-repeat="lvs in leaves" class="p-10 mb-10 event-control {{lvs.className[0]}}">
+            <div class="form-group">
+            <h4>{{lvs.Objective}}</h4>
+            <h5>{{lvs.leavetype}}</h5>
+                <input ng-model="days" class="form-control input-sm input-unstyled">
+                <a class="pull-right text-muted event-remove" ng-click="removes($index)"><i class="fa fa-trash-o"></i></a>
+                <div class="text-xs text-muted">{{lvs.start | date:"MMM dd"}} - {{lvs.end | date:"MMM dd"}}</div>
+                <input ng-model="lvs.comment" class="form-control input-sm input-unstyled">
+                <button type="button" class="btn btn-blue btn-rounded-20 mb-10 " ng-click="addDaysToLv()" >Save</button>   
             </div>
-                <div>
-          <label class="control-label">Upload file</label>
+            
+            
+            <div>
+               
+          <label class="control-label">Upload file</label>      
           <input ui-jq="filestyle" type="file" class="filestyle" ui-options="{
             buttonText: 'Select files',
             iconName: 'fa fa-inbox'
           }" nv-file-select="" uploader="uploader" multiple>
-            </div>        
+                
+            </div> 
+               
         </div>
-            </div>
-        </div>
-          
-      
-
-      </div>
-        
-        <!-- just trying something -->
-        
-        
-
-
     </div>
+</div> 
+    <!--trying-->  
 
+      
     <div class="tcol">
       <div class="p-15 bg-white">
 
@@ -108,7 +98,7 @@
 
         </div>
 
-        <h4 class="custom-font text-default m-0">Calendar</h4>
+        <h4 class="custom-font text-default m-0">Intern's Calendar</h4>
 
       </div>
 
@@ -118,7 +108,7 @@
           <div class="panel b-solid">
             <h3>Objective: {{event.Objective}}</h3>
             <h5>Description: {{event.desc}}</h5>
-              <h5>Days: {{event.Days}}</h5>
+            <h5>Days: {{event.days}}</h5>
             <h4 class="text-light mt-0">Activity: {{event.title}}</h4>
             <div class="b-b b-solid mb-10"></div>
             <div class="text-muted"><i class="icon-calendar mr-5"></i> {{event.start | date:'medium'}}</div>
@@ -128,8 +118,20 @@
             <div class="mt-10">{{event.url}}</div>
           </div>
         </div>
+          
+          <!--I don't whta im doing-->
+           <div class="fc-overlay">
+          <div class="panel b-solid">
+            <h3>Objective: {{love.Objective}}</h3>
+              <h5>Description: {{love.leavetype}}</h5>
+            <div class="b-b b-solid mb-10"></div>
+            <div class="text-muted"><i class="icon-calendar mr-5"></i> {{love.start | date:'medium'}}</div>
+            <div class="text-muted" ng-show='event.end'><i class="icon-clock mr-5"></i> {{love.end | date:'medium'}}</div>
+            <div class="mt-10">Comment: {{love.comment}}</div>
+          </div>
+        </div>
 
-        <div class="calendar" ng-model="eventSources" calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
+        <div class="calendar" ng-model="eventSources"  calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
 
 
       </div>
@@ -141,4 +143,6 @@
 
 
 </div>
+
+ 
 
