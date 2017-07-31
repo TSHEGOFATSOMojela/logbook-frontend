@@ -59,12 +59,20 @@ app
     $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
       $scope.alertMessage = ('Event Droped to make dayDelta ' + delta);
     };
+      /* alert on Drop */
+    $scope.alertOnDrop1 = function(love, delta, revertFunc, jsEvent, ui, view){
+      $scope.alertMessage = ('Love Droped to make dayDelta ' + delta);
+    };
 
     /* alert on Resize */
     $scope.alertOnResize = function(event, delta, revertFunc, jsEvent, ui, view){
       $scope.alertMessage = ('Event Resized to make dayDelta ' + delta);
     };
 
+    /* alert on Resize */
+    $scope.alertOnResize1 = function(love, delta, revertFunc, jsEvent, ui, view){
+      $scope.alertMessage = ('Love Resized to make dayDelta ' + delta);
+    };
     $scope.overlay = angular.element('.fc-overlay');
 
     $scope.alertOnMouseOver = function( event, jsEvent, view ){
@@ -83,7 +91,7 @@ app
         wrap.append( $scope.overlay );
       }
     };
-
+    
     /* config object */
     $scope.uiConfig = {
       calendar:{
@@ -96,38 +104,33 @@ app
         },
         dayClick: $scope.doubleClick,
         eventDrop: $scope.alertOnDrop,
-        eventResize: $scope.alertOnResize,
+        eventResize: $scope.alertOnResize1,
+        eventDrop1: $scope.alertOnDrop1,
+        eventResize1: $scope.alertOnResize,
         eventMouseover: $scope.alertOnMouseOver
       }
     };
 
     /* add custom event document.getElementById("obj").value */
     $scope.addEvent = function() {
-        if($scope.names[$scope.curr] == "Leave"){
         $scope.events.push({
-        Objective: $scope.names[$scope.curr],
-        LeaveType: $scope.returnedLeav,            
-        Days:'0',
-        start: new Date(y, m, d),
-        className: ['b-l b-2x b-info'],
-        comment:'add comment'            
-      });  
-        }else{
-        $scope.events.push({
-        Objective: $scope.names[$scope.curr],  
-        desc:'description',    
+        Objective: $scope.objective[$scope.curr].objectname,  
+        desc:$scope.objective[$scope.curr].desc,
+        dur: $scope.objective[$scope.curr].duration,   
         title: 'New Activity',
         start: new Date(y, m, d),
         className: ['b-l b-2x b-info'],
         comment:'add comment'
       });
-        }
-    
     };
 
     /* remove event */
     $scope.remove = function(index) {
       $scope.events.splice(index,1);
+    };
+     /* remove leave */
+    $scope.removes = function(index) {
+      $scope.leaves.splice(index,1);
     };
 
     /* Change View */
@@ -140,25 +143,19 @@ app
     };
 
     /* event sources array*/
-    $scope.eventSources = [$scope.events];
+    $scope.eventSources = [$scope.leaves,$scope.events];
+   
     
-    
-/*here comes another story*/
-    
-    $scope.names = ["strongloop", "mongo", "Linus","Leave"];
+/*get the index of selected objective*/
     $scope.setCurrent = function setCurrent(index) {
     $scope.curr = index;
 };
 
-$scope.showLeave = function() {
-
-if ($scope.names[$scope.curr] == 'Leave')
-  return true;
-else 
-  return false;
-
+    /*get the index of selected leave*/
+    $scope.setCurrents = function setCurrents(index) {
+    $scope.curre = index;
 };
-    
+
     
     $scope.leave = ["Annual Leave", "Maternity Leave", "Sick Leave","Family Responsibility Leave","Study Leave","Leave for religious holidays","Unpaid leave"];
 
@@ -166,10 +163,25 @@ else
     $scope.currIndex = index;  
    $scope.returnedLeav = $scope.leave[$scope.currIndex];
 };
-   
 
-
-  
+    $scope.objective =[{objectname:"Strongloop",desc:"Please study this for exam",duration:"8 days"},
+                       {objectname:"MongoDB",desc:"back-end must be done using mongodb",duration:"5 days"},
+                       {objectname:"Linex",desc:"we are about to hack",duration:"3 days"}];
+    
+    $scope.leaves =[];
+    /* add custom leave document.getElementById("obj").value */
+    $scope.addLeave = function() {
+        $scope.leaves.push({
+        Objective: 'Leave',    
+        leavetype: $scope.leave[$scope.curre],  
+        start: new Date(y, m, d),
+        end: new Date(y, m, d + 9),     
+        className: ['b-l b-2x b-info'],
+        comment:'add comment'    
+      });
+    };
+    
+           
     
   });
 
