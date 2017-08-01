@@ -59,20 +59,12 @@ app
     $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
       $scope.alertMessage = ('Event Droped to make dayDelta ' + delta);
     };
-      /* alert on Drop */
-    $scope.alertOnDrop1 = function(love, delta, revertFunc, jsEvent, ui, view){
-      $scope.alertMessage = ('Love Droped to make dayDelta ' + delta);
-    };
-
+   
     /* alert on Resize */
     $scope.alertOnResize = function(event, delta, revertFunc, jsEvent, ui, view){
       $scope.alertMessage = ('Event Resized to make dayDelta ' + delta);
     };
 
-    /* alert on Resize */
-    $scope.alertOnResize1 = function(love, delta, revertFunc, jsEvent, ui, view){
-      $scope.alertMessage = ('Love Resized to make dayDelta ' + delta);
-    };
     $scope.overlay = angular.element('.fc-overlay');
 
     $scope.alertOnMouseOver = function( event, jsEvent, view ){
@@ -104,9 +96,7 @@ app
         },
         dayClick: $scope.doubleClick,
         eventDrop: $scope.alertOnDrop,
-        eventResize: $scope.alertOnResize1,
-        eventDrop1: $scope.alertOnDrop1,
-        eventResize1: $scope.alertOnResize,
+        eventResize: $scope.alertOnResize,
         eventMouseover: $scope.alertOnMouseOver
       }
     };
@@ -181,6 +171,18 @@ app
       });
     };
     
+            $scope.IsVisibleA = false;
+            $scope.IsVisibleL = false;
+            $scope.ShowPassport = function (value) {
+                if($scope.IsVisibleA = value == "A"){
+                    $scope.IsVisibleA = true;
+                    $scope.IsVisibleL = false;
+                }else if($scope.IsVisibleL = value == "L"){
+                    $scope.IsVisibleL = true;
+                    $scope.IsVisibleA = false;
+                }
+        
+            }
            
     
   });

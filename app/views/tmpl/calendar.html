@@ -5,8 +5,15 @@
 
 
     <div class="tcol w-lg bg-tr-white lt b-r">
+        <div>
+     <label for="chkPassport">
+            Choose Event!<br/>
+            Activity <input type="radio" name="Passport" ng-click="ShowPassport('A')" />
+            Leave <input type="radio" name="Passport" ng-click="ShowPassport('L')" />
+        </label>
+        </div>    
         <!-- Split button -->
-            <div class="btn-group mb-130">   
+            <div class="btn-group mb-130" ng-show="IsVisibleA">   
             <button type="button" class="btn btn-info">Select Objective</button>
               <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
@@ -17,6 +24,22 @@
                       <div class="p-15 bg-white">
                             <button type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addEvent()" uib-tooltip="Doule-click to calendar day to add event" tooltip-placement="bottom" ><i ng-click="setCurrent($index)" class="fa fa-plus"></i></button> 
                           <h4 class="custom-font text-default m-0">{{x.objectname}}</h4>
+                       </div>
+                  </li>
+            </ul>
+              </div>
+                <!-- Split button -->
+            <div class="btn-group mb-130" ng-show="IsVisibleL">   
+            <button type="button" class="btn btn-info">Select Leave Type</button>
+              <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                  <li ng-repeat="l in leave">
+                      <div class="p-15 bg-white">
+                            <button type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addLeave()" ng-disabled="" uib-tooltip="Doule-click to calendar day to add leav" tooltip-placement="bottom" ><i ng-click="setCurrents($index)"  class="fa fa-plus"></i></button> 
+                          <h4 class="custom-font text-default m-0">{{l}}</h4>
                        </div>
                   </li>
             </ul>
@@ -35,25 +58,9 @@
             </div>
         </div>
     </div>
-</div>
-      <!--trying-->
+              <!--trying-->
     <div class="tcol w-lg bg-tr-white lt b-r">
-        <!-- Split button -->
-            <div class="btn-group mb-130">   
-            <button type="button" class="btn btn-info">Select Leave Type</button>
-              <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
-                <span class="caret"></span>
-                <span class="sr-only">Toggle Dropdown</span>
-              </button>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                  <li ng-repeat="l in leave">
-                      <div class="p-15 bg-white">
-                            <button type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addLeave()" ng-disabled="" uib-tooltip="Doule-click to calendar day to add leav" tooltip-placement="bottom" ><i ng-click="setCurrents($index)"  class="fa fa-plus"></i></button> 
-                          <h4 class="custom-font text-default m-0">{{l}}</h4>
-                       </div>
-                  </li>
-            </ul>
-              </div>
+
         <div class="p-15">
         <div ng-repeat="lvs in leaves" class="p-10 mb-10 event-control {{lvs.className[0]}}">
             <div class="form-group">
@@ -80,9 +87,9 @@
         </div>
     </div>
 </div> 
-    <!--trying-->  
-
-      
+    <!--trying--> 
+</div>
+       
     <div class="tcol">
       <div class="p-15 bg-white">
 
@@ -116,18 +123,6 @@
             <div class="text-muted" ng-show='event.location'><i class="icon-pointer mr-5"></i> {{event.location}}</div>
             <div class="mt-10">Comment: {{event.comment}}</div>
             <div class="mt-10">{{event.url}}</div>
-          </div>
-        </div>
-          
-          <!--I don't whta im doing-->
-           <div class="fc-overlay">
-          <div class="panel b-solid">
-            <h3>Objective: {{love.Objective}}</h3>
-              <h5>Description: {{love.leavetype}}</h5>
-            <div class="b-b b-solid mb-10"></div>
-            <div class="text-muted"><i class="icon-calendar mr-5"></i> {{love.start | date:'medium'}}</div>
-            <div class="text-muted" ng-show='event.end'><i class="icon-clock mr-5"></i> {{love.end | date:'medium'}}</div>
-            <div class="mt-10">Comment: {{love.comment}}</div>
           </div>
         </div>
 
