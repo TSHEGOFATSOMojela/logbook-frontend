@@ -94,8 +94,11 @@ $scope.dataTableOpt = {
   };
     
   $scope.remove = function(n){
-      //NB this will change to "EASY way " once connected to DB 
-       $scope.Interns.splice(n,1);
+      //NB this will change to "EASY way " once connected to DB
+      if (confirm("are you sure you want to delete") == true) {
+      $scope.Interns.splice(n,1);
+  }
+     
 	};
 
     //add into a table

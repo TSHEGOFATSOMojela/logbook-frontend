@@ -20,7 +20,7 @@ app
                 $state.go('app.dashboard');
 //            $location.path('/dashboard');
         }
-        else if($scope.user.userName=='mentor@example.com' && $scope.user.password=='mentor'){
+        else if($scope.user.userName=='mentor' && $scope.user.password=='mentor'){
             
              $state.go('app.shop.single-order');
         }
