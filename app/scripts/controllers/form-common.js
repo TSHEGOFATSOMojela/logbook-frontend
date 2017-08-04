@@ -1,23 +1,34 @@
 'use strict';
+
+/**
+ * @ngdoc function
+ * @name minovateApp.controller:FormsValidateCtrl
+ * @description
+ * # FormsValidateCtrl
+ * Controller of the minovateApp
+ */
 app
-.controller("mentorController", function($scope) {
-    $scope.mentors=[];
-    
-    $scope.addMentor = function()
-    {
-          
-    $scope.mentor={'title':$scope.mentoer.title,
-                  'firstname':$scope.mentoer.firstname,
-                  'lastname':$scope.mentoer.lastname,
-                  'email':$scope.mentoer.email,
-                  'phone':$scope.mentoer.phone,
-                  'comapny':$scope.mentoer.company,
-                  'department':$scope.mentoer.department};
-        $scope.mentors.push($scope.mentor);
-        console.log($scope.mentor)
-    
-        
+  .controller('FormsCommonCtrl', function ($scope) {
+    $scope.page = {
+      title: 'Validation Elements',
+      subtitle: 'Place subtitle here...'
     };
-    
-    
-});
+
+    // function to submit the form after all validation has occurred
+		$scope.submitForm = function(isValid) {
+      console.log('validate form');
+
+			// check to make sure the form is completely valid
+			if (isValid) {
+				console.log('our form is amazing');
+			} else {
+        console.log('form is invalid');
+      }
+
+		};
+
+    $scope.notBlackListed = function(value) {
+      var blacklist = ['bad@domain.com','verybad@domain.com'];
+      return blacklist.indexOf(value) === -1;
+    };
+  });
