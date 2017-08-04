@@ -80,8 +80,9 @@ $scope.dataTableOpt = {
     
   $scope.remove = function(n){
       //NB this will change to "EASY way " once connected to DB 
-        if (confirm("are you sure you want to delete") == true) {
-      $scope.Interns.splice(n,1);
+      
+     if (confirm("are you sure you want to delete") == true) {
+      $scope.objectives.splice(n,1);
   }
 	};
 
