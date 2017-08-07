@@ -222,11 +222,17 @@ app
   })
 
   .controller('ProjectProgressCtrl', function($scope, DTOptionsBuilder, DTColumnDefBuilder){
+    
+    $scope.objective =[{objectname:"Strongloop",desc:"Please study this for exam",duration:"8 days"},
+                       {objectname:"MongoDB",desc:"back-end must be done using mongodb",duration:"5 days"},
+                       {objectname:"Linex",desc:"we are about to hack",duration:"3 days"}];
+    
     $scope.projects = [{
-      title: 'Graphic layout for client',
+      title: 'Strongloop',
       priority: {
         value: 1,
-        title: 'High Priority'
+        title: 'Please study this for exam',
+        duration:'8 days'  
       },
       status: 42,
       chart: {
@@ -234,10 +240,11 @@ app
         color: '#cd97eb'
       }
     },{
-      title: 'Make website responsive',
+      title: 'MongoDB',
       priority: {
         value: 3,
-        title: 'Low Priority'
+        title: 'back-end must be done using mongodb',
+        duration:'5 days'  
       },
       status: 89,
       chart: {
@@ -245,48 +252,16 @@ app
         color: '#a2d200'
       }
     },{
-      title: 'Clean html/css/js code',
+      title: 'Linex',
       priority: {
         value: 1,
-        title: 'High Priority'
+        title: 'we are about to hack',
+        duration:'3 days'  
       },
       status: 23,
       chart: {
         data: [5,6,8,2,1,6,8,4,3,5],
         color: '#ffc100'
-      }
-    },{
-      title: 'Database optimization',
-      priority: {
-        value: 2,
-        title: 'Normal Priority'
-      },
-      status: 56,
-      chart: {
-        data: [2,9,8,7,5,9,2,3,4,2],
-        color: '#16a085'
-      }
-    },{
-      title: 'Database migration',
-      priority: {
-        value: 3,
-        title: 'Low Priority'
-      },
-      status: 48,
-      chart: {
-        data: [3,5,6,2,8,9,5,4,3,2],
-        color: '#1693A5'
-      }
-    },{
-      title: 'Email server backup',
-      priority: {
-        value: 2,
-        title: 'Normal Priority'
-      },
-      status: 10,
-      chart: {
-        data: [7,8,6,4,3,5,8,9,10,7],
-        color: '#3f4e62'
       }
     }];
 

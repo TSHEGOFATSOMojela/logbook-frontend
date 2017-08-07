@@ -165,7 +165,7 @@ app
         Objective: 'Leave',    
         leavetype: $scope.leave[$scope.curre],  
         start: new Date(y, m, d),
-        end: new Date(y, m, d + 9),     
+        end: new Date(y, m, d + 1),     
         className: ['b-l b-2x b-info'],
         comment:'add comment'    
       });
