@@ -546,11 +546,24 @@ var app = angular
       }
     })
       
+      
  //forms/regIntern
     .state('app.forms.regIntern', {
       url: '/regIntern',
       controller: 'FormsRegInternCtrl',
       templateUrl: 'views/tmpl/forms/regIntern.html'
+    })
+      //forms/regMentor
+    .state('app.forms.regMentor', {
+      url: '/regMentor',
+      controller: 'FormsRegMentorCtrl',
+      templateUrl: 'views/tmpl/forms/regMentor.html'
+    })
+     //forms/regCompany
+    .state('app.forms.regCompany', {
+      url: '/regMentor',
+      controller: 'FormsRegCompanyCtrl',
+      templateUrl: 'views/tmpl/forms/regCompany.html'
     })
     //forms/validate
     .state('app.forms.validate', {

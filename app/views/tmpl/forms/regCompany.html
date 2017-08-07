@@ -1,0 +1,108 @@
+<body controller="RegCompanyCtrl">
+
+  <div class="text-center"><h3 class="text-light text-white"><span class="text-lightred"></span>INTERN LOGBOOK</h3></div>
+
+  <div class="container bg-white text-center">
+
+    <h2 class="text-light text-greensea">Register New Company</h2>
+
+  <!-- page content -->
+  <div class="pagecontent">
+
+
+
+    <uib-tabset class="tab-animation tab-container tab-wizard" justified="true" set-ng-animate="true" ng-init="steps={step1:true, step2:false, step3:false, step4:false, step5: false}">
+
+      <uib-tab active="steps.step1">
+
+        <uib-tab-heading>
+          Company Information
+          <span class="badge badge-default pull-right wizard-step">1</span>
+        </uib-tab-heading>
+
+        <form  ng-submit="FormWizardCtrl" name="step1" role="form" novalidate class="form-validation">
+
+          <div class="row">
+            <div class="form-group col-md-6">
+    
+              <input type="text"  class="form-control" ng-model="company.companyName" placeholder="Company Name" required>
+              
+            </div>
+
+            <div class="form-group col-md-6">
+              <input type="text"  class="form-control" ng-model="compnay.companyRegistration" placeholder="Company Registration" required>
+            </div> 
+              
+            <div class="form-group col-md-6">
+            <input type="text" class="form-control" ng-model="company.contact" placeholder="Company Phone Number"  required>
+          </div>
+            <div class="form-group col-md-6">
+            <input type="text"class="form-control" ng-model="company.email" placeholder="Company Email"  required>
+          </div>
+                                                                                                                                       
+            </div>
+            
+             <button type="submit"  class="btn btn-default pull-right" ng-click="steps.step2=true">Next</button>
+        </form>
+
+      </uib-tab>
+
+      <uib-tab active="steps.step2" disable="step1.$invalid">
+
+        <uib-tab-heading>
+          Address
+          <span class="badge badge-default pull-right wizard-step">2</span>
+        </uib-tab-heading>
+
+        <form type="submit" name="step2" role="form" novalidate>
+
+          <div class="row">
+            <div class="form-group col-md-6">
+            <input type="text" class="form-control" ng-model="company.contact" placeholder="Enter Comapny Website:http://www."  required>
+          </div>
+            <div class="form-group col-md-6 ">
+        
+              <input type="text"  class="form-control" ng-model="comapny.street" placeholder="Enter Street Name" required>
+              <p class="help-block">
+                <span ng-show="step2.street.$invalid && !step2.street.$pristine">Street is required.</span>
+              </p>
+            </div>
+          
+          
+             <div class="form-group col-md-6">
+              
+              <input type="text" class="form-control" ng-model="company.buildNmae" placeholder="Enter build name" required>
+              <p class="help-block">
+                <span ng-show="step2.buildName.$invalid && !step2.buildName.$pristine">Build name is required.</span>
+              </p>
+            </div>
+
+          
+            <div class="form-group col-md-6">
+              
+              <input type="text" class="form-control" ng-model="company.city" placeholder="Enter city" required>
+              <p class="help-block">
+                <span ng-show="step2.city.$invalid && !step2.city.$pristine">City is required.</span>
+              </p>
+            </div>
+           
+           
+          </div>
+
+          <button type="button" class="btn btn-default" ng-click="steps.step1=true">Previous</button>
+          <button type="button" class="btn btn-default pull-right" ng-click="steps.step1=true">Save</button>
+
+        </form>
+
+      </uib-tab>
+
+
+    
+        
+  <!-- /page content -->
+      </uib-tabset>
+      </div>
+    </div>
+              <a ui-sref="app.forms.wizard" class="btn btn-default" href="#/app/forms/wizard">Back</a>
+
+</body>
