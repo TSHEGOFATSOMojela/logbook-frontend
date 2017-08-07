@@ -89,7 +89,6 @@
 		<th>Email</th>
         <th>Gender</th>
         <th>Company</th>
-        <th>Position</th>
         <th>Contacts</th>
         <th>Performance</th>
         <th>Actions</th>
@@ -102,8 +101,13 @@
           
 <form class="form-horizontal" role="form" ng-submit="addRow()">
     
-    <td class="col-md"></td>
     
+    <td class="col-md">
+<!--
+            <input type="text" class="form-control" placeholder="id" name="id"
+            ng-model="newIntern.id" />
+-->
+		</td>
 		<td class="col-md">
             <input type="text" class="form-control" placeholder="name" name="name"
             ng-model="newIntern.name" />
@@ -129,11 +133,6 @@
 			ng-model="newIntern.company" />
 		</td>
     
-		<td class="col-md">
-			<input type="text" class="form-control" placeholder="position" name="position"
-			ng-model="newIntern.position" />
-		</td>
-    
         <td class="col-md">
 			<input type="number" class="form-control" name="contacts"
 			ng-model="newIntern.contacts" placeholder="+27"/>
@@ -141,7 +140,7 @@
         
         <td class="col-md"></td>
  
-        <td class="col-md">								
+        <td class="col-md-2">								
          <input type="submit" value="Add Intern"  ng-click="addNewIntern(newIntern)"class="btn btn-xs btn-default"/>
             
         </td>
@@ -152,51 +151,46 @@
     
     
         <tbody>
-     <tr ng-repeat="Intern in Interns | filter: searchKeyword  track by $index" ng-include="getTemplates(Intern)"></tr>
-        </tbody>
+       <tr ng-repeat="Intern in Interns | filter: searchKeyword  track by $index">
+           
+            <td ng-hide="editMode">{{Intern.id}}</td>
+            <td ng-if="editMode"></td>
+           
+            <td ng-hide="editMode">{{Intern.name}}</td>
+            <td ng-if="editMode"><input type="text" class="form-control" placeholder="name" name="name" ng-model="Intern.name"/></td>
+           
+            <td ng-hide="editMode" >{{Intern.surname}}</td>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="surname" name="id"ng-model="Intern.surname" /></td>
+           
+            <td ng-hide="editMode" >{{Intern.email}}</td>
+            <td ng-if="editMode"> <input type="email" class="form-control" placeholder="email" name="id"ng-model="Intern.email" /></td>
+           
+            <td ng-hide="editMode">{{Intern.gender}}</td>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="gender" name="id"ng-model="Intern.gender"/></td>
+           
+            <td ng-hide="editMode">{{Intern.company}}</td>
+            <td ng-if="editMode"> <input type="text" class="form-control" placeholder="company" name="id"ng-model="Intern.company"/>
+           </td>
+           
+            <td ng-hide="editMode">{{Intern.contacts}}</td>
+            <td ng-show="editMode" > <input type="text" class="form-control" placeholder="contacts" name="id"
+            ng-model="Intern.contacts"/>
+            </td>
+           
+           <td ng-hide="editMode"><a ui-sref="app.calendar" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View activities</a></td>
+         <td>
+              <span ng-hide="editMode" class="btn btn-sm btn-success" ng-click="edit(Intern)"><i class="fa fa-edit"></i></span>
+              <span ng-hide="editMode" class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
+
+              <span ng-show="editMode" class="btn btn-sm btn-primary"  ng-click="save(Intern)"><i class="fa fa-save"></i></span>
+              <span ng-show="editMode"class="btn btn-sm btn-info" ng-click="clear(Intern)"><i class="fa fa-remove"></i></span>
+            </td>
+           </tr>
+            
+           </tbody>
     
     </table>
-      
-<script type="text/ng-template " id="view.html">
-
-  		<td style="text-align:center;">{{$index+1}}</td>
-            <td>{{Intern[1]}}</td>
-            <td>{{Intern[2]}}</td>
-            <td>{{Intern[3]}}</td>
-            <td>{{Intern[4]}}</td>
-            <td>{{Intern[5]}}</td>
-            <td>{{Intern[6]}}</td>
-            <td>{{Intern[7]}}</td>
-            <td><a ui-sref="app.calendar" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View activities</a></td>
-            <td>
-    <span class="btn btn-sm btn-success" ng-click="edit(Intern)"><i class="fa fa-edit"></i></span>
-    <span class="btn btn-sm btn-warning" data-ng-click="remove($index)" confirm="Are you sure?"><i class="fa fa-trash"></i></span>
-            </td>
-</script>
-
-<script type="text/ng-template" id="edit.html">
-
-  <td style="text-align:center;">{{$index+1}}</td>
-<!--  <td><input type="text" class="form-control" ng-model="selected[0]" value="{{Intern[0]}}"/></td>-->
-  <td><input type="text" class="form-control" ng-model="selected[1]" value="{{Intern[1]}}"/></td>
-  <td><input type="text" class="form-control" ng-model="selected[2]" value="{{Intern[2]}}"></td>
-  <td><input type="text" class="form-control" ng-model="selected[3]" value="{{Intern[3]}}"/></td>
-  <td><input type="text" class="form-control" ng-model="selected[4]" value="{{Intern[4]}}"/></td>
-  <td><input type="text" class="form-control" ng-model="selected[5]" value="{{Intern[5]}}"/></td>
-  <td><input type="text" class="form-control" ng-model="selected[6]" value="{{Intern[6]}}"/></td>
-  <td><input type="text" class="form-control" ng-model="selected[7]" value="{{Intern[7]}}"/></td>
-      
-  <td>
-      <td>
-
-   <span class="btn btn-sm btn-primary"  ng-click="save()"><i class="fa fa-save"></i></span>
-  <td><span class="btn btn-sm btn-info" ng-click="clear()"><i class="fa fa-remove"></i></span>
-      
-  </td>
- 
-
-</script>
-           </div>
+      </div>
        </div>
    </div>
 </section>

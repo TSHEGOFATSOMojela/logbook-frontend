@@ -1,34 +1,129 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name minovateApp.controller:FormsValidateCtrl
- * @description
- * # FormsValidateCtrl
- * Controller of the minovateApp
- */
-app
-  .controller('FormsValidateCtrl', function ($scope) {
-    $scope.page = {
-      title: 'Validation Elements',
-      subtitle: 'Place subtitle here...'
+//angular.module('app', ['ui.bootstrap','ui.utils']);
+
+app.controller("FormsValidateCtrl", function($scope) {
+  $scope.Mentors=[
+       {
+            "id": "1",
+            "name": "tshegofatso",
+            "surname": "mojela",
+            "email": "mojelatshego@skhomotech.co.za",
+            "company": "skhomo technologies",
+            "department": "male",
+            "contacts": "27726885360"
+           
+        }
+      
+      
+    ,{
+		    "id": "2",
+            "name": "tshegofatso",
+            "surname": "mojela",
+            "email": "mojelatshego@skhomotech.co.za",
+            "company": "skhomo technologies",
+            "department": "male",
+            "contacts": "27726885360"
+       },
+       {
+		    "id": "3",
+           "name": "tshegofatso",
+            "surname": "mojela",
+            "email": "mojelatshego@skhomotech.co.za",
+            "company": "skhomo technologies",
+            "department": "male",
+            "contacts": "27726885360"
+       },
+         {
+		    "id": "4",
+             "name": "tshegofatso",
+            "surname": "mojela",
+            "email": "mojelatshego@skhomotech.co.za",
+            "company": "skhomo technologies",
+            "department": "male",
+            "contacts": "27726885360"
+       },
+        { 
+            "id": "5",
+            "name": "tshegofatso",
+            "surname": "mojela",
+            "email": "mojelatshego@skhomotech.co.za",
+            "company": "skhomo technologies",
+            "department": "male",
+            "contacts": "27726885360"
+         },
+
+    ]
+
+//
+//$scope.dataTableOpt = {
+//   //custom datatable options
+//  "aLengthMenu": [[10, 50, 100,-1], [10, 50, 100,'All']],
+//  };
+//    
+//    
+//  $scope.selected=[];
+//  $scope.getTemplates=function(Intern){
+//    //some time bellow if will throw expection like $scope.selected[0] is undefined,because on the view you stating on 1 but array always starts on 0
+//   if(Intern[0]===$scope.selected[0]){
+//     return "edit.html";
+//   }else{
+//    return "view.html";
+//   }
+//  };
+    
+  
+  $scope.edit=function(u){
+//      $scope.selected = angular.copy(u);
+      $scope.editMode=true;
+      $scope.Interns=angular.copy(u);
+
+  };
+  
+// $scope.save=function(){
+//    //custom save function here 
+//    //Onces custom save function got success then empty it
+//    $.each($scope.Interns,(k,v)=>{
+//      if(v[0]===$scope.selected[0]){
+//        $scope.Interns[k]=$scope.selected;
+//      }
+//    });
+//     $scope.selected=[];
+//  };
+//   $scope.clear=function(){
+//    $scope.selected=[];
+//    $scope.editingMode=false;
+//  };
+      $scope.clear=function(){
+     $scope.editMode=false;
+
+  };
+        $scope.save=function(){
+    if (confirm("are you sure you want to save the changes?") == true) {
+       $scope.Mentors=angular.copy(Mentor);
+  }
+       
     };
+  $scope.remove = function(n){
+      //NB this will change to "EASY way " once connected to DB
+      if (confirm("are you sure you want to delete") == true) {
+      $scope.Mentors.splice(n,1);
+  }
+     
+	};
 
-    // function to submit the form after all validation has occurred
-		$scope.submitForm = function(isValid) {
-      console.log('validate form');
+    //add into a table
+    $scope.addNewMentors=function(newMentor)
+     {
+      
+      //   var i = $scope.Interns.length +1;
+    // $scope.Interns[i]= Object.entries(newIntern).map((value)=>(value));
+      var i = $scope.Mentors.length;   
+       $scope.Mentors[i]=newMentor;
 
-			// check to make sure the form is completely valid
-			if (isValid) {
-				console.log('our form is amazing');
-			} else {
-        console.log('form is invalid');
-      }
-
-		};
-
-    $scope.notBlackListed = function(value) {
-      var blacklist = ['bad@domain.com','verybad@domain.com'];
-      return blacklist.indexOf(value) === -1;
-    };
-  });
+     };
+    
+    
+  
+    
+});
