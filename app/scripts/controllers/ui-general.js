@@ -192,12 +192,12 @@ app
   .controller('TimepickerDemoCtrl', function ($scope) {
     $scope.mytime = new Date();
 
-    $scope.hstep = 1;
-    $scope.mstep = 15;
+    $scope.hstep = 0;
+    $scope.mstep = 0;
 
     $scope.options = {
-      hstep: [1, 2, 3],
-      mstep: [1, 5, 10, 15, 25, 30]
+      hstep: [0,1, 2, 3],
+      mstep: [0, 5, 10, 15, 25, 30]
     };
 
     $scope.ismeridian = true;
