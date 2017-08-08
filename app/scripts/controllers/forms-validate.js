@@ -8,9 +8,9 @@ app.controller("FormsValidateCtrl", function($scope) {
             "id": "1",
             "name": "tshegofatso",
             "surname": "mojela",
-            "email": "mojelatshego@skhomotech.co.za",
+            "email": "tmojela@skhomotech.co.za",
             "company": "skhomo technologies",
-            "department": "male",
+            "department": "Business Analyst",
             "contacts": "27726885360"
            
         }
@@ -18,39 +18,39 @@ app.controller("FormsValidateCtrl", function($scope) {
       
     ,{
 		    "id": "2",
-            "name": "tshegofatso",
-            "surname": "mojela",
-            "email": "mojelatshego@skhomotech.co.za",
+            "name": "tseko",
+            "surname": "Mashego",
+            "email": "tmashego@skhomotech.co.za",
             "company": "skhomo technologies",
-            "department": "male",
-            "contacts": "27726885360"
+            "department": "development",
+            "contacts": "277264748373"
        },
        {
 		    "id": "3",
-           "name": "tshegofatso",
-            "surname": "mojela",
-            "email": "mojelatshego@skhomotech.co.za",
+           "name": "theo",
+            "surname": "molepo",
+            "email": "tmolepo@skhomotech.co.za",
             "company": "skhomo technologies",
-            "department": "male",
-            "contacts": "27726885360"
+            "department": "Sales",
+            "contacts": "27729876543"
        },
          {
 		    "id": "4",
-             "name": "tshegofatso",
-            "surname": "mojela",
-            "email": "mojelatshego@skhomotech.co.za",
+             "name": "tshepo",
+            "surname": "moremela",
+            "email": "moremelatshepo@skhomotech.co.za",
             "company": "skhomo technologies",
-            "department": "male",
-            "contacts": "27726885360"
+            "department": "Infrastructure",
+            "contacts": "27726887654"
        },
         { 
             "id": "5",
-            "name": "tshegofatso",
-            "surname": "mojela",
-            "email": "mojelatshego@skhomotech.co.za",
+            "name": "lehlogonolo",
+            "surname": "molepo",
+            "email": "lmolepo@skhomotech.co.za",
             "company": "skhomo technologies",
-            "department": "male",
-            "contacts": "27726885360"
+            "department": "finance",
+            "contacts": "27723874645"
          },
 
     ]

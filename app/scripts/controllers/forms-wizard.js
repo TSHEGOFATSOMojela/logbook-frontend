@@ -19,32 +19,32 @@ app.controller("FormWizardCtrl", function($scope) {
             "name": "IT Solution",
             "email": "info@itSolution.co.za",
             "website": "www.itSolution.co.za",
-            "address": " 325 Rivonia Blvd, Edenburg, Sandton, 2128",
+            "address": " Pro Equity Court, 13 Ground Floor, 1250 Pretorius Street, Hatfield, Pretoria",
             "contacts": "011 053 6076"
        },
        {
 		      "registrationId": "3",
-            "name": "IT Solution",
-            "email": "info@itSolution.co.za",
-            "website": "www.itSolution.co.za",
-            "address": " 325 Rivonia Blvd, Edenburg, Sandton, 2128",
-            "contacts": "011 053 6076"
+            "name": "AxisWorkGroup",
+            "email": "info@axizworkgroup.com ",
+            "website": "www.axizworkgroup.com ",
+            "address": " International Business Gateway, 6th Rd, Midridge Park, Midrand, 1683",
+            "contacts": "011 237 7000"
        },
          {
 		   "registrationId": "4",
-            "name": "IT Solution",
-            "email": "info@itSolution.co.za",
-            "website": "www.itSolution.co.za",
-            "address": " 325 Rivonia Blvd, Edenburg, Sandton, 2128",
-            "contacts": "011 053 6076"
+            "name": "ASD Solutions",
+            "email": "info@info@asd.co.za",
+            "website": "www.info@asd.co.za",
+            "address": " 275 Johannesburgweg, La Rochelle, Johannesburg South, 2190",
+            "contacts": "011 435 0010"
        },
         { 
           "registrationId": "5",
-            "name": "IT Solution",
+            "name": "IT mitel",
             "email": "info@itSolution.co.za",
-            "website": "www.itSolution.co.za",
-            "address": " 325 Rivonia Blvd, Edenburg, Sandton, 2128",
-            "contacts": "011 053 6076"
+            "website": "www.mitel.com",
+            "address": " 5850 Granite Parkway Suite 600 Plano, TX 75024 Pretoria",
+            "contacts": "011 574 8000 "
          },
 
     ]
