@@ -49,7 +49,7 @@ app.controller("FormWizardCtrl", function($scope) {
 
     ]
 
-//
+
 //$scope.dataTableOpt = {
 //   //custom datatable options
 //  "aLengthMenu": [[10, 50, 100,-1], [10, 50, 100,'All']],
@@ -70,7 +70,7 @@ app.controller("FormWizardCtrl", function($scope) {
   $scope.edit=function(u){
 //      $scope.selected = angular.copy(u);
       $scope.editMode=true;
-      $scope.Companies=angular.copy(u);
+//      $scope.Companies=angular.copy(u);
 
   };
   
