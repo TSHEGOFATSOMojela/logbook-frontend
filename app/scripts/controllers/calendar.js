@@ -15,6 +15,12 @@ app
     var m = date.getMonth();
     var y = date.getFullYear();
     
+    // Disable weekend selection
+    $scope.disabled = function() {
+      return ( date.getDay() === 0 || date.getDay() === 6 );
+    };
+
+    
     var indexer = 0;
 
     /* event source that pulls from google.com */
@@ -25,18 +31,7 @@ app
     };
 
     /* event source that contains custom events on the scope */
-    $scope.events = [
-//      {Objective:'Leave',Days:'3',title: 'Sick Leave',start: new Date(y, m, 1), className: ['b-l b-2x b-greensea'],comment:'I just had an accident'},
-//        
-//        
-//      {Objective:'mongodb',desc:'happy mongodb',title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2), className: ['bg-dutch'],comment:'i dont care.'},
-//      {Objective:'loopback',desc:'do it for me',id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false, className: ['b-l b-2x b-primary'],comment:'I love you sweetie.'},
-//      {Objective:'nodejs',desc:'i dont care',id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false, className: ['b-l b-2x b-primary'],comment:'Im in need of you.'},
-//      {Objective:'express',desc:'who is who boss',title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false, className: ['b-l b-2x b-default'],comment:'hoza nana'},
-//      {Objective:'anguler',desc:'i love angulerjs',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/', className: ['b-l b-2x b-hotpink'],comment:'thuskee.'},
-//      {Objective:'killing',desc:'hoza nana',title: 'Make cupcakes', start: new Date(y, m, 2), className: ['b-l b-2x b-info'], location:'Bratislava', comment:'The best in whole world.'},
-//      {Objective:'deployment',desc:'khaya fm friday',title: 'Call wife', start: new Date(y, m, 6),end: new Date(y, m, 7), className: ['b-l b-2x b-red'], location:'Piestany', comment:'And say her hello.'}
-    ];
+    $scope.events = [];
 
     /* alert on dayClick */
     $scope.precision = 400;
@@ -88,11 +83,13 @@ app
     $scope.uiConfig = {
       calendar:{
         height: 450,
+        hiddenDays: [ 0, 6 ],  
         editable: true,
         header:{
           left: 'prev',
           center: 'title',
           right: 'next'
+           
         },
         dayClick: $scope.doubleClick,
         eventDrop: $scope.alertOnDrop,
@@ -163,7 +160,8 @@ app
     $scope.addLeave = function() {
         $scope.leaves.push({
         Objective: 'Leave',    
-        leavetype: $scope.leave[$scope.curre],  
+        leavetype: $scope.leave[$scope.curre],
+        days: 'days',    
         start: new Date(y, m, d),
         end: new Date(y, m, d + 1),     
         className: ['b-l b-2x b-info'],
@@ -183,9 +181,24 @@ app
                 }
         
             }
+            
+    $scope.hstep = 0;
+    $scope.mstep = 0;
+
+    $scope.options = {
+      hstep: [0,1, 2, 3, 4, 5, 6, 7, 8],
+      mstep: [0, 5, 10, 15, 25, 30]
+    };  
+    $scope.ismeridian = true;
+    $scope.toggleMode = function() {
+      $scope.ismeridian = ! $scope.ismeridian;
+    };
+          
+ 
            
     
   });
+
 
 
 

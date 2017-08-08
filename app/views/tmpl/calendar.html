@@ -6,13 +6,16 @@
 
 
     <div class="tcol w-lg bg-tr-white lt b-r">
-        <div>
-     <label for="chkEvent">
-            Choose Event!<br/>
-            Activity <input type="radio" name="Passport" ng-click="ShowPassport('A')" />
-            Leave <input type="radio" name="Passport" ng-click="ShowPassport('L')" />
-        </label>
-        </div>    
+        <div class="tcol w-lg bg-tr-white lt b-r">
+    <h4 class="text-center" >Choose Event!</h4>
+
+<md-radio-group ng-model="data.group1" layout="row" layout-align="center center" >
+        <md-radio-button value="Apple" class="md-primary" ng-click="ShowPassport('A')">Activity</md-radio-button>
+        <md-radio-button value="Banana" ng-click="ShowPassport('L')">Leave</md-radio-button>
+</md-radio-group>    
+            
+            
+           
         <!-- Split button -->
             <div class="btn-group mb-130" ng-show="IsVisibleA">   
             <button type="button" class="btn btn-info">Select Objective</button>
@@ -45,36 +48,70 @@
                   </li>
             </ul>
               </div>
+            </div> 
         <div class="p-15">
         <div ng-repeat="e in events" class="p-10 mb-10 event-control {{e.className[0]}}">
             <div class="form-group">
             <h4>{{e.Objective}}</h4>
             <h5>{{e.desc}}</h5>
             <h6>{{e.dur}}</h6>
-                <input ng-model="e.title" class="form-control input-sm input-unstyled">
-                <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>
-                <div class="text-xs text-muted">{{e.start | date:"MMM dd"}} - {{e.end | date:"MMM dd"}}</div>
-                <input ng-model="e.comment" class="form-control input-sm input-unstyled">
-                
+                <hr>
+                activity
+                <input ng-model="e.title" class="form-control input-sm ">
+<!--                <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>-->
+                comment
+                <input ng-model="e.comment" class="form-control input-sm ">
+                <div class="text-sm text-muted"><strong>{{e.start | date:"MMM dd"}}</strong></div>
             </div>
+                        
+                     <!--thu-->
+                
+                <section class="tile" fullscreen="isFullscreen10">
+<!-- tile body -->
+          <div class="tile-body">
+            <!-- row -->
+            <div class="row">
+              <!-- col -->
+              <div class="col-md-6">
+                <label>Hours:</label>
+                <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+              </div>
+              <!-- /col -->
+
+              <!-- col -->
+              <div class="col-md-6">
+                <label>Minutes:</label>
+                <select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
+              </div>
+              <!-- /col -->
+
+            </div>
+            <!-- /row -->
+
+            <hr>
+              <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>
+              <button type="button" class="btn btn-blue btn-rounded-20 mb-10 " >Save</button>
+          </div>
+<!-- /tile body -->
+             </section>
+               
+                <!--thu-->
+
         </div>
     </div>
-              <!--trying-->
-    <div class="tcol w-lg bg-tr-white lt b-r">
-
-        <div class="p-15">
+              
+       <div class="p-15">
         <div ng-repeat="lvs in leaves" class="p-10 mb-10 event-control {{lvs.className[0]}}">
             <div class="form-group">
             <h4>{{lvs.Objective}}</h4>
             <h5>{{lvs.leavetype}}</h5>
-                <input ng-model="days" class="form-control input-sm input-unstyled">
-                <a class="pull-right text-muted event-remove" ng-click="removes($index)"><i class="fa fa-trash-o"></i></a>
-                <div class="text-xs text-muted">{{lvs.start | date:"MMM dd"}} - {{lvs.end | date:"MMM dd"}}</div>
-                <input ng-model="lvs.comment" class="form-control input-sm input-unstyled">
-                <button type="button" class="btn btn-blue btn-rounded-20 mb-10 " ng-click="addDaysToLv()" >Save</button>   
+                <hr>
+                number of days:
+                <input ng-model="lvs.days" class="form-control input-sm">
+                comment
+                <input ng-model="lvs.comment" class="form-control input-sm">
+                <div class="text-sm text-muted">{{lvs.start | date:"MMM dd"}} - {{lvs.end | date:"MMM dd"}}</div>
             </div>
-            
-            
             <div>
                
           <label class="control-label">Upload file</label>      
@@ -84,11 +121,12 @@
           }" nv-file-select="" uploader="uploader" multiple>
                 
             </div> 
-               
+            <hr>
+            <a class="pull-right text-muted event-remove" ng-click="removes($index)"><i class="fa fa-trash-o"></i></a>
+            <div><button type="button" class="btn btn-blue btn-rounded-20 mb-10 " >Save</button> </div>
         </div>
     </div>
-</div> 
-    <!--trying--> 
+    
 </div>
        
     <div class="tcol">
