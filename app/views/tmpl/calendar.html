@@ -6,10 +6,10 @@
 
 
     <div class="tcol w-lg bg-tr-white lt b-r">
-        <div class="tcol w-lg bg-tr-white lt b-r">
+        <div class="tcol w-lg lt b-r bg-tr-info">
     <h4 class="text-center" >Choose Event!</h4>
 
-<md-radio-group ng-model="data.group1" layout="row" layout-align="center center" >
+<md-radio-group ng-model="data.group1" layout="row" layout-align="center" >
         <md-radio-button value="Apple" class="md-primary" ng-click="ShowPassport('A')">Activity</md-radio-button>
         <md-radio-button value="Banana" ng-click="ShowPassport('L')">Leave</md-radio-button>
 </md-radio-group>    
@@ -26,7 +26,7 @@
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
                   <li ng-repeat="x in objective">
                       <div class="p-15 bg-white">
-                            <button type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addEvent()" uib-tooltip="Doule-click to calendar day to add event" tooltip-placement="bottom" ><i ng-click="setCurrent($index)" class="fa fa-plus"></i></button> 
+                            <button id="object" type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addEvent()" uib-tooltip="Doule-click to calendar day to add event" tooltip-placement="bottom" ><i ng-click="setCurrent($index)" class="fa fa-plus"></i></button> 
                           <h4 class="custom-font text-default m-0">{{x.objectname}}</h4>
                        </div>
                   </li>
@@ -42,7 +42,7 @@
                 <ul class="dropdown-menu dropdown-menu-right" role="menu">
                   <li ng-repeat="l in leave">
                       <div class="p-15 bg-white">
-                            <button type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addLeave()" ng-disabled="" uib-tooltip="Doule-click to calendar day to add leav" tooltip-placement="bottom" ><i ng-click="setCurrents($index)"  class="fa fa-plus"></i></button> 
+                            <button id="lev" type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addLeave()" ng-disabled="" uib-tooltip="Doule-click to calendar day to add leav" tooltip-placement="bottom" ><i ng-click="setCurrents($index)"  class="fa fa-plus"></i></button> 
                           <h4 class="custom-font text-default m-0">{{l}}</h4>
                        </div>
                   </li>
@@ -89,27 +89,26 @@
             <!-- /row -->
 
             <hr>
-              <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>
-              <button type="button" class="btn btn-blue btn-rounded-20 mb-10 " >Save</button>
           </div>
 <!-- /tile body -->
              </section>
                
                 <!--thu-->
-
+<a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>
+              <button type="button" class="btn btn-blue btn-rounded-20 mb-10 " >Save</button>
         </div>
     </div>
               
        <div class="p-15">
         <div ng-repeat="lvs in leaves" class="p-10 mb-10 event-control {{lvs.className[0]}}">
             <div class="form-group">
-            <h4>{{lvs.Objective}}</h4>
+            <h4>{{lvs.Leave}}</h4>
             <h5>{{lvs.leavetype}}</h5>
                 <hr>
                 number of days:
                 <input ng-model="lvs.days" class="form-control input-sm">
                 comment
-                <input ng-model="lvs.comment" class="form-control input-sm">
+                <input ng-model="lvs.comments" class="form-control input-sm">
                 <div class="text-sm text-muted">{{lvs.start | date:"MMM dd"}} - {{lvs.end | date:"MMM dd"}}</div>
             </div>
             <div>
@@ -164,7 +163,19 @@
             <div class="mt-10">{{event.url}}</div>
           </div>
         </div>
-
+        <!--thulani-->
+        <div class="fc-overlay">
+          <div class="panel b-solid">
+            <h3>{{even.title}}</h3>
+            <h5>{{even.leavetype}}</h5>
+            <h5>Days: {{even.days}}</h5>
+            <div class="b-b b-solid mb-10"></div>
+            <div class="text-muted"><i class="icon-calendar mr-5"></i> {{even.start | date:'medium'}}</div>
+            <div class="text-muted" ng-show='event.end'><i class="icon-clock mr-5"></i> {{even.end | date:'medium'}}</div>
+            <div class="mt-10">Comment: {{even.comments}}</div>
+          </div>
+        </div>
+         <!--thulani-->  
         <div class="calendar" ng-model="eventSources"  calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
 
 

@@ -14,13 +14,7 @@ app
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
-    
-    // Disable weekend selection
-    $scope.disabled = function() {
-      return ( date.getDay() === 0 || date.getDay() === 6 );
-    };
 
-    
     var indexer = 0;
 
     /* event source that pulls from google.com */
@@ -32,7 +26,8 @@ app
 
     /* event source that contains custom events on the scope */
     $scope.events = [];
-
+    $scope.leaves =[];
+    
     /* alert on dayClick */
     $scope.precision = 400;
     $scope.lastClickTime = 0;
@@ -40,7 +35,7 @@ app
       var time = new Date().getTime();
       if(time - $scope.lastClickTime <= $scope.precision){
         $scope.events.push({
-          title: 'New Activity',
+//          title: 'New Activity',
           desc:'description',    
           start: date,
           className: ['b-l b-2x b-info'],
@@ -63,7 +58,7 @@ app
     $scope.overlay = angular.element('.fc-overlay');
 
     $scope.alertOnMouseOver = function( event, jsEvent, view ){
-      $scope.event = event;
+      $scope.event = event;  
       $scope.overlay.removeClass('left right');
       var wrap = angular.element(jsEvent.target).closest('.fc-event');
       var cal = wrap.closest('.calendar');
@@ -82,9 +77,15 @@ app
     /* config object */
     $scope.uiConfig = {
       calendar:{
-        height: 450,
-        hiddenDays: [ 0, 6 ],  
-        editable: true,
+        height: 550,
+        hiddenDays: [ 0, 6 ],
+        allDay:false,  
+        businessHours: {
+            dow: [ 1, 2, 3, 4, 5 ], 
+            start: '07:30', 
+            end: '16:30', 
+            } , 
+        editable: false,
         header:{
           left: 'prev',
           center: 'title',
@@ -94,7 +95,7 @@ app
         dayClick: $scope.doubleClick,
         eventDrop: $scope.alertOnDrop,
         eventResize: $scope.alertOnResize,
-        eventMouseover: $scope.alertOnMouseOver
+        eventMouseover: $scope.alertOnMouseOver  
       }
     };
 
@@ -106,11 +107,23 @@ app
         dur: $scope.objective[$scope.curr].duration,   
         title: 'New Activity',
         start: new Date(y, m, d),
-        className: ['b-l b-2x b-info'],
+        className: ['b-l b-2x b-info bg-dutch'],
         comment:'add comment'
       });
     };
-
+    /* add custom leave document.getElementById("obj").value */
+    $scope.addLeave = function() {
+        $scope.leaves.push({
+        title: 'Leave',    
+        leavetype: $scope.leave[$scope.curre],
+        days: 'days',    
+        start: new Date(y, m, d),
+        end: new Date(y, m, d +2),     
+        className: ['b-l b-2x b-warning bg-red'],
+        comments:'add comment'   
+      });
+        
+    };
     /* remove event */
     $scope.remove = function(index) {
       $scope.events.splice(index,1);
@@ -154,20 +167,8 @@ app
     $scope.objective =[{objectname:"Strongloop",desc:"Please study this for exam",duration:"8 days"},
                        {objectname:"MongoDB",desc:"back-end must be done using mongodb",duration:"5 days"},
                        {objectname:"Linex",desc:"we are about to hack",duration:"3 days"}];
-    
-    $scope.leaves =[];
-    /* add custom leave document.getElementById("obj").value */
-    $scope.addLeave = function() {
-        $scope.leaves.push({
-        Objective: 'Leave',    
-        leavetype: $scope.leave[$scope.curre],
-        days: 'days',    
-        start: new Date(y, m, d),
-        end: new Date(y, m, d + 1),     
-        className: ['b-l b-2x b-info'],
-        comment:'add comment'    
-      });
-    };
+
+
     
             $scope.IsVisibleA = false;
             $scope.IsVisibleL = false;
@@ -195,7 +196,17 @@ app
     };
           
  
-           
+//    $scope.hideIt = function() {
+//    var object = document.getElementById("object");
+//    var lev = document.getElementById("lev");
+//    
+//
+//    if (object.clicked == true) {
+//        return true
+//    } else (lev.clicked == true) {
+//        return true
+//    };
+//};    
     
   });
 
