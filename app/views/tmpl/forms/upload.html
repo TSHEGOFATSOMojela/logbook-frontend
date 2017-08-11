@@ -1,0 +1,167 @@
+<section class="tile" fullscreen="isFullscreen06">
+
+<!-- tile header -->
+  <div class="tile-header dvd dvd-btm">
+    <h1 class="custom-font"><strong>Obejectives </strong>Progress</h1>
+          <ul class="controls">
+        <li><a href="javascript:window.print()" uib-tooltip="Print"><i class="fa fa-print"></i></a></li>
+          <li ng-controller="DaterangepickerCtrl">
+              <a href="javascript:;" daterangepicker="rangeOptions" date-begin="startDate" date-end="endDate">
+              <span>{{startDate}} - {{endDate}}</span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+              </a>
+          </li>
+
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+            <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+            <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                <li>
+                    <a href tile-control-toggle>
+                    <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                    <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                  </a>
+                </li>
+                <li>
+                    <a href tile-control-refresh ng-click="ajaxFaker()">
+                    <fa name="refresh"></fa> Refresh
+                    </a>
+                </li>
+                <li>
+                     <a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">
+                     <fa name="expand"></fa> Fullscreen
+                     </a>
+                </li>
+                <li>
+                     <a href tile-control-lightbox>
+                     <fa name="magnet"></fa> Open in Lightbox
+                     </a>
+                </li>
+
+              </ul>
+
+            </li>
+            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
+                   <!-- /tile header -->
+                   <!-- tile body -->
+        <div class="tile-body table-custom" ng-controller="FormUploadCtrl">
+
+          <div class="table-responsive">
+            <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-custom">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Objective</th>
+                <th>Description</th>
+                <th>Activity Name</th>
+                <th>Comments</th>
+                <th>Time Completed</th>
+                <th>Date Completed</th>
+                <th style="width: 180px;">Progress</th>
+                <th style="width: 60px;" class="text-right">Duration</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="project in projects">
+                <td>{{$index+1 }}</td>
+                <td>{{project.title }}</td>
+                <td>{{project.priority.title}}</td>
+                <td>{{project.priority.activity}}</td>
+                <td>{{project.priority.comments}}</td>
+                <td>{{project.priority.date | date:'hh:mm:ss a'}}</td>
+                <td>{{project.priority.date | date:'dd, MMMM yyyy'}}</td>
+                <td>
+                    <uib-progressbar class="progress-xxs not-rounded mb-0 inline-block" value="project.status" type="greensea" style="width: 150px; margin-right: 5px"></uib-progressbar><small>{{project.status}}%</small>
+                </td>
+                <td>{{project.priority.duration}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+    
+        <!-- /tile body -->
+
+      </section>
+      <!-- /tile -->
+
+<!-- tile header Leave Progress -->
+  <section class="tile" fullscreen="isFullscreen06">
+
+<!-- tile header -->
+  <div class="tile-header dvd dvd-btm">
+    <h1 class="custom-font"><strong>Leave </strong>Progress</h1>
+          <ul class="controls">
+        <li><a href="javascript:window.print()" uib-tooltip="Print"><i class="fa fa-print"></i></a></li>
+          <li ng-controller="DaterangepickerCtrl">
+              <a href="javascript:;" daterangepicker="rangeOptions" date-begin="startDate" date-end="endDate">
+              <span>{{startDate}} - {{endDate}}</span>&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+              </a>
+          </li>
+
+            <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
+            <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
+            <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
+                <li>
+                    <a href tile-control-toggle>
+                    <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
+                    <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
+                  </a>
+                </li>
+                <li>
+                    <a href tile-control-refresh ng-click="ajaxFaker()">
+                    <fa name="refresh"></fa> Refresh
+                    </a>
+                </li>
+                <li>
+                     <a href tile-control-fullscreen ng-click="isFullscreen06 = !isFullscreen06">
+                     <fa name="expand"></fa> Fullscreen
+                     </a>
+                </li>
+                <li>
+                     <a href tile-control-lightbox>
+                     <fa name="magnet"></fa> Open in Lightbox
+                     </a>
+                </li>
+
+              </ul>
+
+            </li>
+            <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
+          </ul>
+        </div>
+                   <!-- /tile header -->
+                   <!-- tile body -->
+        <div class="tile-body table-custom" ng-controller="FormUploadCtrl">
+
+          <div class="table-responsive">
+            <table datatable="ng" dt-options="dtOptions" dt-column-defs="dtColumnDefs" class="table table-custom">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Leave Type</th>
+                <th>Number Of Days</th>
+                <th>Comments</th>
+                <th>Documents</th>
+                <th>Date</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="leave in leaves">
+                <td>{{$index+1 }}</td>
+                <td>{{leave.leave }}</td>
+                <td>{{leave.priority.numOfDays}}</td>
+                <td>{{leave.priority.LeaveComments}}</td>
+                <td>{{leave.priority.documents}}</td>
+                <td>{{leave.priority.leaveDate | date:'dd, MMMM yyyy'}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <!-- /tile body -->
+
+      </section>
+      <!-- /tile -->

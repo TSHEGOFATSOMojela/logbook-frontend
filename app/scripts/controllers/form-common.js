@@ -1,128 +1,65 @@
 'use strict';
 
-//angular.module('app', ['ui.bootstrap','ui.utils']);
+/**
+ * @ngdoc function
+ * @name minovateApp.controller:DashboardCtrl
+ * @description
+ * # DashboardCtrl
+ * Controller of the minovateApp
+ */
+app
 
-app.controller("FormsCommonCtrl", function($scope) {
-  $scope.Interns=[
-       {
-            "id": "1",
-            "name": "tshegofatso",
-            "surname": "mojela",
-            "email": "mojelatshego@skhomotech.co.za",
-            "gender": "male",
-            "company": "skhomo technologies",
-            "contacts": "27726885360"
-        }
-      
-      
-    ,{
-		    "id": "2",
-            "name": "thulani",
-            "surname": "malatjie",
-            "email": "malatjie@skhomotech.co.za",
-            "gender": "male",
-            "company": "skhomo technologies",
-            "contacts": "27726873635"
-       },
-       {
-		    "id": "3",
-            "name": "naftalie",
-            "surname": "morwa",
-            "email": "Nmorwa@skhomotech.co.za",
-            "gender": "male",
-            "company": "skhomo technologies",
-            "contacts": "27265343434"
-       },
-         {
-		    "id": "4",
-            "name": "fatso",
-            "surname": "kutu",
-            "email": "Fkutu@skhomotech.co.za",
-            "gender": "male",
-            "company": "skhomo technologies",
-            "contacts": "27264735364"
-       },
-        { 
-            "id": "5",
-            "name": "pedi",
-            "surname": "maleka",
-            "email": "pmaleka@skhomotech.co.za",
-            "gender": "shemale",
-            "company": "skhomo technologies",
-            "contacts": "27273456123"
-         },
-
-    ]
-
-//
-//$scope.dataTableOpt = {
-//   //custom datatable options
-//  "aLengthMenu": [[10, 50, 100,-1], [10, 50, 100,'All']],
-//  };
-//    
-//    
-//  $scope.selected=[];
-//  $scope.getTemplates=function(Intern){
-//    //some time bellow if will throw expection like $scope.selected[0] is undefined,because on the view you stating on 1 but array always starts on 0
-//   if(Intern[0]===$scope.selected[0]){
-//     return "edit.html";
-//   }else{
-//    return "view.html";
-//   }
-//  };
+.controller('FormsCommonCtrl', function($scope, DTOptionsBuilder, DTColumnDefBuilder){
     
-  
-  $scope.edit=function(u){
-//      $scope.selected = angular.copy(u);
-      $scope.editMode=true;
-      $scope.Interns=angular.copy(u);
-
-  };
-  
-// $scope.save=function(){
-//    //custom save function here 
-//    //Onces custom save function got success then empty it
-//    $.each($scope.Interns,(k,v)=>{
-//      if(v[0]===$scope.selected[0]){
-//        $scope.Interns[k]=$scope.selected;
-//      }
-//    });
-//     $scope.selected=[];
-//  };
-//   $scope.clear=function(){
-//    $scope.selected=[];
-//    $scope.editingMode=false;
-//  };
-      $scope.clear=function(){
-     $scope.editMode=false;
-
-  };
-        $scope.save=function(){
-    if (confirm("are you sure you want to save the changes?") == true) {
-       $scope.Interns=angular.copy(Intern);
-  }
-       
-    };
-  $scope.remove = function(n){
-      //NB this will change to "EASY way " once connected to DB
-      if (confirm("are you sure you want to delete") == true) {
-      $scope.Interns.splice(n,1);
-  }
-     
-	};
-
-    //add into a table
-    $scope.addNewIntern=function(newIntern)
-     {
-      
-      //   var i = $scope.Interns.length +1;
-    // $scope.Interns[i]= Object.entries(newIntern).map((value)=>(value));
-      var i = $scope.Interns.length;   
-       $scope.Interns[i]=newIntern
-
-     };
+    $scope.objective =[{objectname:"Strongloop",desc:"Please study this for exam",duration:"8 days"},
+                       {objectname:"MongoDB",desc:"back-end must be done using mongodb",duration:"5 days"},
+                       {objectname:"Linex",desc:"we are about to hack",duration:"3 days"}];
     
-    
-  
-    
-});
+    $scope.projects = [{
+      title: 'Strongloop',
+      priority: {
+        value: 1,
+        title: 'Please study this for exam',
+        duration:'8 days'  
+      },
+      status: 42,
+      chart: {
+        data: [1,3,2,3,5,6,8,5,9,8],
+        color: '#cd97eb'
+      }
+    },{
+      title: 'MongoDB',
+      priority: {
+        value: 3,
+        title: 'back-end must be done using mongodb',
+        duration:'5 days'  
+      },
+      status: 89,
+      chart: {
+        data: [2,5,3,4,6,5,1,8,9,10],
+        color: '#a2d200'
+      }
+    },{
+      title: 'Linex',
+      priority: {
+        value: 1,
+        title: 'we are about to hack',
+        duration:'3 days'  
+      },
+      status: 23,
+      chart: {
+        data: [5,6,8,2,1,6,8,4,3,5],
+        color: '#ffc100'
+      }
+    }];
+
+    $scope.dtOptions = DTOptionsBuilder.newOptions().withBootstrap();
+    $scope.dtColumnDefs = [
+      DTColumnDefBuilder.newColumnDef(0),
+      DTColumnDefBuilder.newColumnDef(1),
+      DTColumnDefBuilder.newColumnDef(2),
+      DTColumnDefBuilder.newColumnDef(3),
+      DTColumnDefBuilder.newColumnDef(4).notSortable()
+    ];
+  });
+

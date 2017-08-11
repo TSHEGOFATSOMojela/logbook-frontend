@@ -221,11 +221,8 @@ app
     };
   })
 
-  .controller('ProjectProgressCtrl', function($scope, DTOptionsBuilder, DTColumnDefBuilder){
-    
-    $scope.objective =[{objectname:"Strongloop",desc:"Please study this for exam",duration:"8 days"},
-                       {objectname:"MongoDB",desc:"back-end must be done using mongodb",duration:"5 days"},
-                       {objectname:"Linex",desc:"we are about to hack",duration:"3 days"}];
+  .controller('ProjectProgressCtrls', function($scope, DTOptionsBuilder, DTColumnDefBuilder){
+
     
     $scope.projects = [{
       title: 'Strongloop',
