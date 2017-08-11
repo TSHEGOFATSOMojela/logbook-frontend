@@ -153,12 +153,10 @@ app
   .controller('BrowseUsageCtrl', function ($scope) {
 
     $scope.donutData = [
-      {label: 'Chrome', value: 25, color: '#00a3d8'},
-      {label: 'Safari', value: 20, color: '#2fbbe8'},
-      {label: 'Firefox', value: 15, color: '#72cae7'},
-      {label: 'Opera', value: 5, color: '#d9544f'},
-      {label: 'Internet Explorer', value: 10, color: '#ffc100'},
-      {label: 'Other', value: 25, color: '#1693A5'}
+      {label: 'Total Users', value: 40, color: '#00695c'},
+      {label: 'Companies', value: 20, color: '#ff4444'},
+      {label: 'Mentors', value: 20, color: '#0099CC'},
+      {label: 'Interns', value: 20, color: '#263238'}
     ];
 
     $scope.oneAtATime = true;
@@ -221,7 +219,7 @@ app
     };
   })
 
-  .controller('ProjectProgressCtrls', function($scope, DTOptionsBuilder, DTColumnDefBuilder){
+
 
     
     $scope.projects = [{
