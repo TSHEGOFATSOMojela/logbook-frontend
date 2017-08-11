@@ -219,7 +219,7 @@ app
     };
   })
 
-  .controller('ProjectProgressCtrl', function($scope, DTOptionsBuilder, DTColumnDefBuilder){
+
 
     
     $scope.projects = [{
