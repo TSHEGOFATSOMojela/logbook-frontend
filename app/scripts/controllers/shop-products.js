@@ -57,8 +57,8 @@ app.controller("ProductsCtrl", function($scope) {
   
   $scope.edit=function(u){
 
-      $scope.editMode=true;
-      $scope.Interns=angular.copy(u);
+//      $scope.editMode=true;
+       $scope.editMode=angular.copy(u);
 
   };
   
@@ -69,7 +69,7 @@ app.controller("ProductsCtrl", function($scope) {
   };
         $scope.save=function(){
     if (confirm("are you sure you want to save the changes?") == true) {
-       $scope.Interns=angular.copy(Intern);
+//       $scope.Interns=angular.copy(Intern);
   }
        
     };

@@ -17,7 +17,7 @@ app
       title: 'Strongloop',
       priority: {
         value: 1,
-        title: 'Please study this for exam',
+        description: 'Please study this for exam',
         duration:'8 days',
         activity:'create custom user collection',
         comments:'completed a custom user collection',
@@ -33,7 +33,7 @@ app
       title: 'MongoDB',
       priority: {
         value: 3,
-        title: 'back-end must be done using mongodb',
+        description: 'back-end must be done using mongodb',
         duration:'5 days',
         activity:'create custom user collection',
         comments:'completed a custom user collection',
@@ -48,7 +48,7 @@ app
       title: 'Linex',
       priority: {
         value: 1,
-        title: 'we are about to hack',
+        description: 'we are about to hack',
         duration:'3 days',
         activity:'create custom user collection',
         comments:'completed a custom user collection',
@@ -100,10 +100,7 @@ app
       DTColumnDefBuilder.newColumnDef(1),
       DTColumnDefBuilder.newColumnDef(2),
       DTColumnDefBuilder.newColumnDef(3),
-      DTColumnDefBuilder.newColumnDef(4),
-      DTColumnDefBuilder.newColumnDef(5),
-      DTColumnDefBuilder.newColumnDef(6),
-      DTColumnDefBuilder.newColumnDef(7).notSortable()
+      DTColumnDefBuilder.newColumnDef(4).notSortable()
     ];
   });
 
