@@ -70,7 +70,7 @@ app
         value: 1,
         numOfDays: '1',
         LeaveComments:'family problems',
-        documents:'cr',
+        documents:'leave form',
         leaveDate : new Date()
       },
     }
@@ -80,7 +80,7 @@ app
         value: 3,
         numOfDays: '3',
         LeaveComments:'flu',
-        documents:'cer',
+        documents:'sick letter',
         leaveDate : new Date()
       },
     },{
@@ -89,7 +89,7 @@ app
         value: 1,
         numOfDays: '4',
         LeaveComments:'writting c# on tuesday',
-        documents:'https://app/images/sick.pdf',
+        documents:'Leave form',
         leaveDate : new Date()
       },
     }];
