@@ -195,18 +195,18 @@ app
       $scope.ismeridian = ! $scope.ismeridian;
     };
           
- 
-    $scope.hideIt = function() {
-    var object = document.getElementById("object");
-    var lev = document.getElementById("lev");
-    
-
-    if (object.clicked == true) {
-        document.getElementById("lev").disabled = true;
-    } else{
-        document.getElementById("object").disabled = true;
-    };
-};    
+// 
+//    $scope.hideIt = function() {
+//    var object = document.getElementById("object");
+//    var lev = document.getElementById("lev");
+//    
+//
+//    if (object.clicked == true) {
+//        document.getElementById("lev").disabled = true;
+//    } else{
+//        document.getElementById("object").disabled = true;
+//    };
+//};    
     
     
     

@@ -7,16 +7,14 @@
 
     <div class="tcol w-lg bg-tr-white lt b-r">
         <div class="tcol w-lg lt b-r bg-tr-info">
-    <h4 class="text-center" >Choose Event!</h4>
-
-<md-radio-group ng-model="data.group1" layout="row" layout-align="center" >
-        <md-radio-button value="Apple" class="md-primary" ng-click="ShowPassport('A')">Activity</md-radio-button>
-        <md-radio-button value="Banana" ng-click="ShowPassport('L')">Leave</md-radio-button>
-</md-radio-group>    
-            
-            
-           
-        <!-- Split button -->
+            <div class="p-15 bg-white">
+                <h4 class="text-center custom-font text-default m-0" >select event!</h4> 
+                <md-radio-group ng-model="data.group1" layout="row" layout-align="center" >
+                    <md-radio-button value="Apple" class="md-primary custom-font text-default m-0" ng-click="ShowPassport('A')"> Activity </md-radio-button>
+                    <md-radio-button value="Banana" class="custom-font text-default m-0" ng-click="ShowPassport('L')"> Leave </md-radio-button>
+                </md-radio-group> 
+            </div>  
+            <!-- Split button -->
             
             <div class="btn-group mb-130" ng-show="IsVisibleA">   
             <button type="button" class="btn btn-info">Select Objective</button>
@@ -164,19 +162,7 @@
             <div class="mt-10">{{event.url}}</div>
           </div>
         </div>
-        <!--thulani-->
-        <div class="fc-overlay">
-          <div class="panel b-solid">
-            <h3>{{even.title}}</h3>
-            <h5>{{even.leavetype}}</h5>
-            <h5>Days: {{even.days}}</h5>
-            <div class="b-b b-solid mb-10"></div>
-            <div class="text-muted"><i class="icon-calendar mr-5"></i> {{even.start | date:'medium'}}</div>
-            <div class="text-muted" ng-show='event.end'><i class="icon-clock mr-5"></i> {{even.end | date:'medium'}}</div>
-            <div class="mt-10">Comment: {{even.comments}}</div>
-          </div>
-        </div>
-         <!--thulani-->  
+
         <div class="calendar" ng-model="eventSources"  calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
 
 
