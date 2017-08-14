@@ -153,7 +153,9 @@
                 <td>{{leave.leave }}</td>
                 <td>{{leave.priority.numOfDays}}</td>
                 <td>{{leave.priority.LeaveComments}}</td>
-                <td>{{leave.priority.documents}}</td>
+                <td><i class="fa fa-file-pdf-o" aria-hidden="true"></i><br>
+                    <a href="images/LeaveForm.pdf" target="_blank">{{leave.priority.documents}}</a><br>
+                   </td>
                 <td>{{leave.priority.leaveDate | date:'dd, MMMM yyyy'}}</td>
               </tr>
               </tbody>
