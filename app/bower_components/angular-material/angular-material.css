@@ -3683,7 +3683,7 @@ md-radio-group md-radio-button:not(:first-child) {
 
 md-radio-group.layout-row md-radio-button {
   margin-top: 0;
-/*  margin-bottom: 0;*/
+  margin-bottom: 0;
   margin-left: 0;
   margin-right: 16px; }
   html[dir=rtl] md-radio-group.layout-row md-radio-button {

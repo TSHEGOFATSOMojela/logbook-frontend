@@ -14,9 +14,7 @@ app.controller("FormsValidateCtrl", function($scope) {
             "contacts": "27726885360"
            
         }
-      
-      
-    ,{
+       ,{
 		    "id": "2",
             "name": "tseko",
             "surname": "Mashego",
@@ -34,7 +32,7 @@ app.controller("FormsValidateCtrl", function($scope) {
             "department": "Sales",
             "contacts": "27729876543"
        },
-         {
+       {
 		    "id": "4",
              "name": "tshepo",
             "surname": "moremela",
@@ -43,7 +41,7 @@ app.controller("FormsValidateCtrl", function($scope) {
             "department": "Infrastructure",
             "contacts": "27726887654"
        },
-        { 
+       { 
             "id": "5",
             "name": "lehlogonolo",
             "surname": "molepo",

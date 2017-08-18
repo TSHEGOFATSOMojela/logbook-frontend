@@ -53,23 +53,53 @@ app.controller("ProductsCtrl", function($scope) {
          },
 
     ]
+
+//
+//$scope.dataTableOpt = {
+//   //custom datatable options
+//  "aLengthMenu": [[10, 50, 100,-1], [10, 50, 100,'All']],
+//  };
+//    
+//    
+//  $scope.selected=[];
+//  $scope.getTemplates=function(Intern){
+//    //some time bellow if will throw expection like $scope.selected[0] is undefined,because on the view you stating on 1 but array always starts on 0
+//   if(Intern[0]===$scope.selected[0]){
+//     return "edit.html";
+//   }else{
+//    return "view.html";
+//   }
+//  };
     
   
   $scope.edit=function(u){
-
-//      $scope.editMode=true;
-       $scope.editMode=angular.copy(u);
+//      $scope.selected = angular.copy(u);
+      $scope.editMode=true;
+      $scope.Interns=angular.copy(u);
 
   };
   
-
-     $scope.clear=function(){
+// $scope.save=function(){
+//    //custom save function here 
+//    //Onces custom save function got success then empty it
+//    $.each($scope.Interns,(k,v)=>{
+//      if(v[0]===$scope.selected[0]){
+//        $scope.Interns[k]=$scope.selected;
+//      }
+//    });
+//     $scope.selected=[];
+//  };
+//   $scope.clear=function(){
+//    $scope.selected=[];
+//    $scope.editingMode=false;
+//  };
+      $scope.clear=function(){
      $scope.editMode=false;
 
   };
         $scope.save=function(){
     if (confirm("are you sure you want to save the changes?") == true) {
-//       $scope.Interns=angular.copy(Intern);
+       $scope.Interns=angular.copy(Intern);
   }
        
     };
@@ -85,8 +115,10 @@ app.controller("ProductsCtrl", function($scope) {
     $scope.addNewIntern=function(newIntern)
      {
       
+      //   var i = $scope.Interns.length +1;
+    // $scope.Interns[i]= Object.entries(newIntern).map((value)=>(value));
       var i = $scope.Interns.length;   
-       $scope.Interns[i]=newIntern;
+       $scope.Interns[i]=newIntern
 
      };
     

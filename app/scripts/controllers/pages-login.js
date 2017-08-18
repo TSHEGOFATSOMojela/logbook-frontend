@@ -18,7 +18,7 @@ app
         if($scope.user.userName=='admin@example.com' && $scope.user.password=='admin'){
             
                 $state.go('app.dashboard');
-
+//            $location.path('/dashboard');
         }
         else if($scope.user.userName=='mentor' && $scope.user.password=='mentor'){
             

@@ -2,107 +2,69 @@
 
 /**
  * @ngdoc function
- * @name minovateApp.controller:DashboardCtrl
+ * @name minovateApp.controller:FormUploadCtrl
  * @description
- * # DashboardCtrl
+ * # FormUploadCtrl
  * Controller of the minovateApp
  */
 app
+  .controller('FormUploadCtrl', ['$scope', 'FileUploader', function($scope, FileUploader) {
+    var uploader = $scope.uploader = new FileUploader({
+      //url: 'scripts/modules/fileupload/upload.php' //enable this option to get f
+    });
 
-.controller('FormUploadCtrl', function($scope, DTOptionsBuilder, DTColumnDefBuilder){
-    
+    // FILTERS
 
-    
-    $scope.projects = [{
-      title: 'Strongloop',
-      priority: {
-        value: 1,
-        description: 'Please study this for exam',
-        duration:'8 days',
-        activity:'create custom user collection',
-        comments:'completed a custom user collection',
-        date: new Date()
-      },
-      status: 100,
-      chart: {
-        data: [1,3,2,3,5,6,8,5,9,8],
-        color: '#cd97eb'
+    uploader.filters.push({
+      name: 'customFilter',
+      fn: function() {
+        return this.queue.length < 10;
       }
-    }
-     ,{
-      title: 'MongoDB',
-      priority: {
-        value: 3,
-        description: 'back-end must be done using mongodb',
-        duration:'5 days',
-        activity:'create custom user collection',
-        comments:'completed a custom user collection',
-        date: new Date()
-      },
-      status: 100,
-      chart: {
-        data: [2,5,3,4,6,5,1,8,9,10],
-        color: '#a2d200'
+    });
+
+    uploader.filters.push({
+      name: 'imageFilter',
+      fn: function(item /*{File|FileLikeObject}*/, options) {
+          var type = '|' + item.type.slice(item.type.lastIndexOf('/') + 1) + '|';
+          return '|jpg|png|jpeg|bmp|gif|'.indexOf(type) !== -1;
       }
-    },{
-      title: 'Linex',
-      priority: {
-        value: 1,
-        description: 'we are about to hack',
-        duration:'3 days',
-        activity:'create custom user collection',
-        comments:'completed a custom user collection',
-        date: new Date()
-      },
-      status: 100,
-      chart: {
-        data: [5,6,8,2,1,6,8,4,3,5],
-        color: '#ffc100'
-      }
-    }];
-    
-    
-    
-    //leave
-     $scope.leaves = [{
-      leave: 'Annual Leave',
-      priority: {
-        value: 1,
-        numOfDays: '1',
-        LeaveComments:'family problems',
-        documents:'leave form',
-        leaveDate : new Date()
-      },
-    }
-     ,{
-        leave: 'Sick Leave',
-      priority: {
-        value: 3,
-        numOfDays: '3',
-        LeaveComments:'flu',
-        documents:'sick letter',
-        leaveDate : new Date()
-      },
-    },{
-        leave: 'Study Leave',
-      priority: {
-        value: 1,
-        numOfDays: '4',
-        LeaveComments:'writting c# on tuesday',
-        documents:'Leave form',
-        leaveDate : new Date()
-      },
-    }];
+    });
 
-    $scope.dtOptions = DTOptionsBuilder.newOptions().withBootstrap();
-    $scope.dtColumnDefs = [
-      DTColumnDefBuilder.newColumnDef(0),
-      DTColumnDefBuilder.newColumnDef(1),
-      DTColumnDefBuilder.newColumnDef(2),
-      DTColumnDefBuilder.newColumnDef(3),
-      DTColumnDefBuilder.newColumnDef(4).notSortable()
-    ];
-  });
+    // CALLBACKS
 
+    uploader.onWhenAddingFileFailed = function(item /*{File|FileLikeObject}*/, filter, options) {
+      console.info('onWhenAddingFileFailed', item, filter, options);
+    };
+    uploader.onAfterAddingFile = function(fileItem) {
+      console.info('onAfterAddingFile', fileItem);
+    };
+    uploader.onAfterAddingAll = function(addedFileItems) {
+      console.info('onAfterAddingAll', addedFileItems);
+    };
+    uploader.onBeforeUploadItem = function(item) {
+      console.info('onBeforeUploadItem', item);
+    };
+    uploader.onProgressItem = function(fileItem, progress) {
+      console.info('onProgressItem', fileItem, progress);
+    };
+    uploader.onProgressAll = function(progress) {
+      console.info('onProgressAll', progress);
+    };
+    uploader.onSuccessItem = function(fileItem, response, status, headers) {
+      console.info('onSuccessItem', fileItem, response, status, headers);
+    };
+    uploader.onErrorItem = function(fileItem, response, status, headers) {
+      console.info('onErrorItem', fileItem, response, status, headers);
+    };
+    uploader.onCancelItem = function(fileItem, response, status, headers) {
+      console.info('onCancelItem', fileItem, response, status, headers);
+    };
+    uploader.onCompleteItem = function(fileItem, response, status, headers) {
+      console.info('onCompleteItem', fileItem, response, status, headers);
+    };
+    uploader.onCompleteAll = function() {
+      console.info('onCompleteAll');
+    };
 
-
+    console.info('uploader', uploader);
+  }]);

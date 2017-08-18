@@ -27,6 +27,7 @@ app
     /* event source that contains custom events on the scope */
     $scope.events = [];
     $scope.leaves =[];
+    $scope.meetings =[];
     
     /* alert on dayClick */
     $scope.precision = 400;
@@ -79,7 +80,7 @@ app
       calendar:{
         height: 550,
         hiddenDays: [ 0, 6 ],
-        allDay:false,  
+        allDay:true,  
         businessHours: {
             dow: [ 1, 2, 3, 4, 5 ], 
             start: '07:30', 
@@ -111,6 +112,17 @@ app
         comment:'add comment'
       });
     };
+    
+    /*add meeting*/
+        $scope.addMeeting = function() {
+        $scope.meetings.push({
+        title: 'New Meeting',
+        start: new Date(y, m, d),
+        className: ['b-l b-2x b-info bg-green'],
+        comment:'add comment'
+      });
+    };
+    
     /* add custom leave document.getElementById("obj").value */
     $scope.addLeave = function() {
         $scope.leaves.push({
@@ -132,6 +144,11 @@ app
     $scope.removes = function(index) {
       $scope.leaves.splice(index,1);
     };
+    
+     /* remove meeting */
+    $scope.removes = function(index) {
+      $scope.meetings.splice(index,1);
+    };
 
     /* Change View */
     $scope.changeView = function(view, calendar) {
@@ -143,7 +160,7 @@ app
     };
 
     /* event sources array*/
-    $scope.eventSources = [$scope.leaves,$scope.events];
+    $scope.eventSources = [$scope.leaves,$scope.events,$scope.meetings];
    
     
 /*get the index of selected objective*/
@@ -195,21 +212,10 @@ app
       $scope.ismeridian = ! $scope.ismeridian;
     };
           
- 
-    $scope.hideIt = function() {
-    var object = document.getElementById("object");
-    var lev = document.getElementById("lev");
-    
-
-    if (object.clicked == true) {
-        document.getElementById("lev").disabled = true;
-    } else{
-        document.getElementById("object").disabled = true;
-    };
-};    
-    
-    
-    
+        $scope.showevent = false;
+            $scope.showEvent = function () {
+              return $scope.showevent = true;
+            }
   });
 
 

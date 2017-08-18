@@ -1,87 +1,21 @@
-   <div class="row">
-       
-      <div class="col-md-12">
- 
-<section class="tile" fullscreen="isFullscreen01"> 
 
-<div class="tile-header dvd dvd-btm">
-         
-
-
-       
-
-    
-   <h1 class="custom-font">Intern's Calendar</h1>
-    <ul class="controls">
-        
-          <li><div class="pull-left">
-<!--
-
-          <button  ng-click="today()">today</button>
-          <button  ng-click="changeView('agendaDay', 'myCalendar1')">Day</button>
-          <button ng-click="changeView('agendaWeek', 'myCalendar1')">Week</button>
-         <button  ng-click="changeView('month', 'myCalendar1')">Month</button>
--->
-        </div></li>
-<!-- <li><a ui-sref="app.shop.products" ><i class="fa fa-plus mr-5"  ></i>Interns</a></li>-->
-<!--        <li><a ng-click="today()">today</a></li>-->
-          <li><a  ng-click="changeView('agendaDay', 'myCalendar1')">Day</a></li>
-          <li><a ng-click="changeView('agendaWeek', 'myCalendar1')">Week</a></li>
-          <li><a ng-click="changeView('month', 'myCalendar1')">Month</a></li>
-    <li class="dropdown" uib-dropdown on-toggle="toggled(open)">
-        
-           <a href uib-dropdown-toggle class="dropdown-toggle settings"><i class="fa fa-cog"></i></a>
-        <ul class="dropdown-menu pull-right with-arrow animated littleFadeInUp">
-         <li>
-                <a href tile-control-toggle>
-                <span class="minimize"><fa name="angle-down"></fa>&nbsp;&nbsp;&nbsp;Minimize</span>
-                <span class="expand"><fa name="angle-up"></fa>&nbsp;&nbsp;&nbsp;Expand</span>
-                </a>
-          </li>
-           <li>
-                  <a href tile-control-refresh ng-click="ajaxFaker()">
-                  <fa name="refresh"></fa> Refresh
-                  </a>
-            </li>
-            <li>
-                 <a href tile-control-lightbox>
-                 <fa name="magnet"></fa> Open in Lightbox
-                 </a>
-            </li>
-
-        </ul>
-
-     </li>
-     <li class="remove"><a href tile-control-close><i class="fa fa-times"></i></a></li>
-    </ul>
-   </div> 
-      
-<div>
-  <div class="panel">
-  
-      
-      
 <div class="page page-full page-calendar">
 
 
-  <div  class="tbox tbox-sm">
+  <div class="tbox tbox-sm">
 
 
-    <div  class="tcol w-lg bg-tr-white lt b-r">
-        <div class="tcol w-lg lt b-r bg-tr-info" > 
-         <h4  class="text-center" class="custom-font text-default m-0" >Choose Event!</h4>
-
-  
-   
-
-<md-radio-group ng-model="data.group1" layout="row" layout-align="center" >
-        <md-radio-button value="Apple" class="md-primary" ng-click="ShowPassport('A')">Activity</md-radio-button>
-        <md-radio-button value="Banana" ng-click="ShowPassport('L')">Leave</md-radio-button>
-</md-radio-group>    
+    <div class="tcol w-lg bg-tr-white lt b-r">
+        <div class="tcol w-lg lt b-r bg-tr-info">
+            <div class="p-15 bg-info">
+                <h4 class="text-center custom-font text-default m-0  btn-info" ng-click="showEvent()">select event!</h4> 
+            </div> 
+             <md-radio-group ng-model="data.group1" layout="row" layout-align="center" ng-show="showevent">
+                    <md-radio-button value="Apple" class="custom-font text-default m-0" ng-click="ShowPassport('A')" > Activity </md-radio-button>
+                    <md-radio-button value="Banana" class="custom-font text-default m-0" ng-click="ShowPassport('L')"> Leave </md-radio-button>
+                </md-radio-group> 
+            <!-- Split button -->
             
-            
-           
-        <!-- Split button -->
             
             <div class="btn-group mb-130" ng-show="IsVisibleA">   
             <button type="button" class="btn btn-info">Select Objective</button>
@@ -96,6 +30,12 @@
                           <h4 class="custom-font text-default m-0">{{x.objectname}}</h4>
                        </div>
                   </li>
+                    <li>  
+                        <div class="p-15 bg-white">
+                            <button id="object" type="button" class="btn btn-greensea btn-xs mb-10 pull-right b-0" ng-click="addMeeting()" uib-tooltip="Doule-click to calendar day to add event" tooltip-placement="bottom" ><i ng-click="setCurrent($index)" class="fa fa-plus"></i></button> 
+                          <h4 class="custom-font text-default m-0">Meeting</h4>
+                       </div>
+                    </li>
             </ul>
               </div>
                 <!-- Split button -->
@@ -115,6 +55,8 @@
             </ul>
               </div>
             </div> 
+        
+        <!--Activity-->
         <div class="p-15">
         <div ng-repeat="e in events" class="p-10 mb-10 event-control {{e.className[0]}}">
             <div class="form-group">
@@ -130,8 +72,7 @@
                 <div class="text-sm text-muted"><strong>{{e.start | date:"MMM dd"}}</strong></div>
             </div>
                         
-                     <!--thu-->
-                
+    
                 <section class="tile" fullscreen="isFullscreen10">
 <!-- tile body -->
           <div class="tile-body">
@@ -164,7 +105,56 @@
               <button type="button" class="btn btn-blue btn-rounded-20 mb-10 " >Save</button>
         </div>
     </div>
-              
+    <!--Activity-->  
+        
+                <!--Meeting-->
+        <div class="p-15">
+        <div ng-repeat="met in meetings" class="p-10 mb-10 event-control {{met.className[0]}}">
+            <div class="form-group">
+                meeting
+                <input ng-model="met.title" class="form-control input-sm ">
+<!--                <a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>-->
+                decription
+                <input ng-model="met.comment" class="form-control input-sm ">
+                <div class="text-sm text-muted"><strong>{{met.start | date:"MMM dd"}}</strong></div>
+            </div>
+                <section class="tile" fullscreen="isFullscreen10">
+                  <div class="tile-body">
+            <!-- row -->
+            <div class="row">
+              <!-- col -->
+              <div class="col-md-6">
+                <label>Hours:</label>
+                <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+              </div>
+              <!-- /col -->
+
+              <!-- col -->
+              <div class="col-md-6">
+                <label>Minutes:</label>
+                <select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
+              </div>
+              <!-- /col -->
+
+            </div>
+            <!-- /row -->
+
+            <hr>
+          </div>
+<!-- /tile body -->
+             </section>
+               
+                <!--thu-->
+<a class="pull-right text-muted event-remove" ng-click="remove($index)"><i class="fa fa-trash-o"></i></a>
+              <button type="button" class="btn btn-blue btn-rounded-20 mb-10 " >Save</button>
+        </div>
+    </div>
+    <!--Meeting-->  
+        
+        
+        
+        
+    <!--Leave-->    
        <div class="p-15">
         <div ng-repeat="lvs in leaves" class="p-10 mb-10 event-control {{lvs.className[0]}}">
             <div class="form-group">
@@ -191,11 +181,27 @@
             <div><button type="button" class="btn btn-blue btn-rounded-20 mb-10 " >Save</button> </div>
         </div>
     </div>
-    
+    <!--Leave-->  
 </div>
        
     <div class="tcol">
+      <div class="p-15 bg-white">
 
+        <div class="pull-right">
+
+          <button type="button" class="btn btn-sm btn-default" ng-click="today()">today</button>
+
+          <div class="btn-group">
+            <button class="btn btn-default btn-sm" ng-click="changeView('agendaDay', 'myCalendar1')">Day</button>
+            <button class="btn btn-default btn-sm" ng-click="changeView('agendaWeek', 'myCalendar1')">Week</button>
+            <button class="btn btn-default btn-sm" ng-click="changeView('month', 'myCalendar1')">Month</button>
+          </div>
+
+        </div>
+
+        <h4 class="custom-font text-default m-0">Intern's Calendar</h4>
+
+      </div>
 
       <div class="p-15">
 
@@ -213,19 +219,7 @@
             <div class="mt-10">{{event.url}}</div>
           </div>
         </div>
-        <!--thulani-->
-        <div class="fc-overlay">
-          <div class="panel b-solid">
-            <h3>{{even.title}}</h3>
-            <h5>{{even.leavetype}}</h5>
-            <h5>Days: {{even.days}}</h5>
-            <div class="b-b b-solid mb-10"></div>
-            <div class="text-muted"><i class="icon-calendar mr-5"></i> {{even.start | date:'medium'}}</div>
-            <div class="text-muted" ng-show='event.end'><i class="icon-clock mr-5"></i> {{even.end | date:'medium'}}</div>
-            <div class="mt-10">Comment: {{even.comments}}</div>
-          </div>
-        </div>
-         <!--thulani-->  
+
         <div class="calendar" ng-model="eventSources"  calendar="myCalendar1" ui-calendar="uiConfig.calendar"></div>
 
 
@@ -238,9 +232,6 @@
 
 
 </div>
-</div>
-    </div>
- </section>
-     </div>
-   </div>
+
+ 
 

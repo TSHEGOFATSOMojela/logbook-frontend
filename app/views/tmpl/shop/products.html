@@ -115,7 +115,7 @@
     
 		<td class="col-md">
             <input type="text" placeholder="surname" class="form-control" name="surname"
-             ng-model="newIntern.surname"/>
+            ng-model="newIntern.surname" />
 		</td>
     
 		<td class="col-md">	
@@ -140,7 +140,7 @@
         
         <td class="col-md"></td>
  
-        <td class="col-md-14">								
+        <td class="col-md-2">								
          <input type="submit" value="Add Intern"  ng-click="addNewIntern(newIntern)"class="btn btn-xs btn-default"/>
             
         </td>
@@ -177,13 +177,7 @@
             ng-model="Intern.contacts"/>
             </td>
            
-           <td ng-hide="editMode" >
-           <a style="margin:2px" ui-sref="app.forms.upload" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View activities <span class="badge badge-success"> 3</span></a>
-           <a style="margin:2px" ui-sref="app.calendar" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View Calendar</a>
-           
-           
-           </td>
-           
+           <td ng-hide="editMode"><a ui-sref="app.calendar" class="btn btn-xs btn-default"><i class="fa fa-search"></i>View activities <span class="badge badge-success">5</span></a></td>
          <td>
               <span ng-hide="editMode" class="btn btn-sm btn-success" ng-click="edit(Intern)"><i class="fa fa-edit"></i></span>
               <span ng-hide="editMode" class="btn btn-sm btn-warning" data-ng-click="remove($index)"><i class="fa fa-trash"></i></span>
@@ -198,11 +192,9 @@
     </table>
       </div>
        </div>
-  <div class="row"><div class="col-xs-6"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 5 of 3 entries</div></div><div class="col-xs-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="disabled"><a href="#" class="previous" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">Previous</a></li><li></li><li class="active"><a href="#" class="" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></li><li class="disabled"><a href="#" class="next" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" id="DataTables_Table_0_next">Next</a></li></ul></div></div></div>
    </div>
-     
+        <div class="row"><div class="col-xs-6"><div class="dataTables_info" id="DataTables_Table_0_info" role="status" aria-live="polite">Showing 1 to 5 of 3 entries</div></div><div class="col-xs-6"><div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate"><ul class="pagination"><li class="disabled"><a href="#" class="previous" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" id="DataTables_Table_0_previous">Previous</a></li><li></li><li class="active"><a href="#" class="" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></li><li class="disabled"><a href="#" class="next" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" id="DataTables_Table_0_next">Next</a></li></ul></div></div></div>
 </section>
-             
      </div>
    </div>
 </div>

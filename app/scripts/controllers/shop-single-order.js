@@ -9,33 +9,33 @@ app
             "id": "1",
             "title": "loopback",
             "description": "learn loopbook will use it for our backend",
-            "duration": new Date()
+            "duration": "3/1/2017"
         }
       
       
     ,{
 		    "id": "2",
-            "title": "Mongodb",
-            "description": "connect frontend with database use mongodb as our datasource ",
-            "duration": new Date()
+            "title": "loopback",
+            "description": "learn loopbook will use it for our backend",
+            "duration": "3/1/2017"
        },
        {
 		    "id": "3",
-            "title": "postman",
-            "description": "use postman to test http requests",
-            "duration": new Date()
+            "title": "loopback",
+            "description": "learn loopbook will use it for our backend",
+            "duration": "3/1/2017"
        },
          {
 		    "id": "4",
-            "title": "robomongo",
-            "description": "download and use robomongo to edit the collection in database",
-            "duration": new Date()
+            "title": "loopback",
+            "description": "learn loopbook will use it for our backend",
+            "duration": "3/1/2017"
        },
         { 
             "id": "5",
-            "title": "email",
-            "description": "register page must send an email to mentor with a verification link to verify an intern",
-            "duration":new Date()
+            "title": "loopback",
+            "description": "learn loopbook will use it for our backend",
+            "duration": "3/1/2017"
          },
 
     ]
@@ -44,24 +44,24 @@ app
   $scope.edit=function(u){
 
       $scope.editMode=true;
-     
+      $scope.objectives=angular.copy(u);
 
   };
   
 
       $scope.clear=function(){
-      $scope.editMode=false;
+     $scope.editMode=false;
 
   };
         $scope.save=function(){
     if (confirm("are you sure you want to save the changes?") == true) {
-     
+       $scope.objectives=angular.copy(objective);
   }
        
     };
   $scope.remove = function(n){
       //NB this will change to "EASY way " once connected to DB
-      if (confirm("are you sure you want to delete?") == true) {
+      if (confirm("are you sure you want to delete") == true) {
       $scope.objectives.splice(n,1);
   }
      
@@ -73,7 +73,7 @@ app
       
 
       var i = $scope.objectives.length;   
-       $scope.objectives[i]=newobjective;
+       $scope.objectives[i]=newobjective
 
      };
     
